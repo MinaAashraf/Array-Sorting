@@ -1,6 +1,6 @@
 ; a method to sort an array using Insertion Sort algorithm..
 .386
-includelib Irvine32
+include Irvine32.inc
 .model flat, stdcall
 
 ExitProcess proto, dwExitCode: dword

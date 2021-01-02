@@ -1,2 +1,3 @@
 ﻿  Assembling Insertion_Sort.asm...
+Insertion_Sort.asm(4): warning A4011: multiple .MODEL directives found : .MODEL ignored
   SortedArr.vcxproj -> E:\Academic Stuff\My College\3rd Computer Systems Engineering\1st Term\Microprocessor\Project\Project Repository on Github\Sorted-Arr\Debug\SortedArr.exe
