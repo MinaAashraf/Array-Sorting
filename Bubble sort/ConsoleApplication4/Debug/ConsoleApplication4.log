@@ -1,0 +1,3 @@
+﻿C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppBuild.targets(491,5): warning MSB8028: The intermediate directory (Debug\) contains files shared from another project (ConsoleApplication4.vcxproj).  This can lead to incorrect clean and rebuild behavior.
+  Assembling Bubble_Sort.asm...
+  ConsoleApplication4.vcxproj -> D:\المحاضرات\تالته حاسبات\Micropocessors\Micro - project\Sort algorithm\Sorted-Arr\Sorted-Arr\Bubble sort\Debug\Bubble_Sort.exe
