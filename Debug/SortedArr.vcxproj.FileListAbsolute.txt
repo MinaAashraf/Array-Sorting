@@ -1,0 +1,4 @@
+C:\Users\ashra\source\repos\SortedArr\Debug\SortedArr.exe
+C:\Users\ashra\source\repos\SortedArr\Debug\SortedArr.pdb
+D:\المحاضرات\تالته حاسبات\Micropocessors\Micro - project\Mina\Sorted-Arr\Debug\SortedArr.exe
+D:\المحاضرات\تالته حاسبات\Micropocessors\Micro - project\Mina\Sorted-Arr\Debug\SortedArr.pdb
