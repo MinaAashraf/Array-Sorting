@@ -1,2 +1,4 @@
 C:\Users\ashra\source\repos\SortedArr\Debug\SortedArr.exe
 C:\Users\ashra\source\repos\SortedArr\Debug\SortedArr.pdb
+E:\Academic Stuff\My College\3rd Computer Systems Engineering\1st Term\Microprocessor\Project\Project Repository on Github\Sorted-Arr\Debug\SortedArr.exe
+E:\Academic Stuff\My College\3rd Computer Systems Engineering\1st Term\Microprocessor\Project\Project Repository on Github\Sorted-Arr\Debug\SortedArr.pdb
