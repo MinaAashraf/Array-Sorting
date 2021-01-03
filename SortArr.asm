@@ -3,32 +3,37 @@
 INCLUDE Irvine32.inc
 .data
 array SDWORD 10, -1, 5, 11, 32, 4
+outLoop DWORD ?
+inLoop DWORD ?
+msg1 byte "hello from out loop",0
+msg2 byte "hello from inner loop",0
 
 .code
 main PROC
-	mov ESI, offset array ; load address of array 
-	mov ebx, [esi] ; ebx contain minimum 
-	mov ecx, lengthof array ; counter for loop
-	L1:
-		add esi,4
-		cmp [esi],ebx
-		jl smaller
-		loop L1
-		jmp found
+MOV EAX, lengthof array
+dec eax 
+;mov outLoop , eax 
+;mov inLoop,0
+mov ecx, 5
 
-	smaller:
-	mov ebx,[esi] 
-	cmp ecx,0
-	je found
-	loop L1
-	
-found:
-	mov EAX, EBX
-	call writeint
-	call waitmsg
-		
+l1:
+push ecx
+lea edx, msg1
+call writeString
+call crlf
 
-		
-	
+mov ecx,5
+l2:
+lea edx, msg2
+call writeString
+call crlf
+
+loop l2
+
+
+
+pop cx
+loop l1
+call waitmsg
 main ENDP
 END main
