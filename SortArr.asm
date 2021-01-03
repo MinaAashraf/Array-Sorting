@@ -1,55 +1,64 @@
 .386
 include irvine32.inc
-.model flat,stdcall
-.stack 4096
-.data
 
-arr DWORD 2,5,8,0,1,7
-counter DWORD 6
-input BYTE ?
+.data ; data area // memory area
+ msg BYTE "enter two variable =",0
+ msg1 BYTE "var1= ",0
+ msg2 BYTE "var2= ",0
+ addition BYTE "add= ",0
+ Subition BYTE "Sub= ",0
+ divion BYTE "div= ",0
+r BYTE "r= ",0
+MUlitupltion BYTE "mul= ",0
+var1 DWORD ?
+var2 DWORD ?
 
-.code
+.code ; instruction area 
 
 main proc
+ 
+   mov edx,OFFSET msg
+  call writestring
+  call readint 
+  mov var1,eax
+   call readint 
+  mov var2,eax
+    mov edx,OFFSET msg1
+    mov eax,var1
+    call writestring
+    call writeint 
+    call crlf
+    mov edx,OFFSET msg2
+    mov eax,var2
+    call writestring
+    call writeint 
+    call crlf
 
-call readint
-cmp eax , 0
-jz output
+    mov eax,0; eax=0
+    add eax,var1
+    add eax,var2
+    mov edx ,OFFSET addition
+    call writestring
+    call writeint 
+    call crlf
 
- reverse:
-    mov edx , 0
-    mov eax , counter
-    mov ebx , 2
-    div ebx
-    mov ecx,eax
+    mov eax,var1; eax=0
+    sub eax,var2
+    mov edx ,OFFSET  Subition
+    call writestring
+    call writeint 
+    call crlf
 
-    mov ebx , offset arr
-    sub counter , 1
-    mov eax , 4
-    mul counter
-       
-
-    lo1:
-        mov edx , [ebx]
-        mov edi , [ebx+eax]
-        mov [ebx],edi
-        mov [ebx+eax],edx
-        add ebx , 4
-        sub eax , 8
-
-   loop lo1
+    
 
 
-   output:
-   mov ecx , 6
-   mov ebx , offset arr
-   lo2:
-        mov eax , [ebx]
-        add ebx,4
-        call writeint
-        call crlf
 
-    loop lo2
+
+
+
+
+
+
 
 
 

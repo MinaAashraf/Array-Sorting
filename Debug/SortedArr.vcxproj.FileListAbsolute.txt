@@ -1,2 +1,4 @@
 C:\Users\ashra\source\repos\SortedArr\Debug\SortedArr.exe
 C:\Users\ashra\source\repos\SortedArr\Debug\SortedArr.pdb
+D:\sa\Microprocessors\Sorted-Arr\Debug\SortedArr.exe
+D:\sa\Microprocessors\Sorted-Arr\Debug\SortedArr.pdb
