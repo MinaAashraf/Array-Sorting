@@ -1,30 +1,34 @@
-include irvine32.inc 
+
+
+INCLUDE Irvine32.inc
 .data
-msg BYTE " enter numbers from 1 to 10 ",0
-LIST dword 10 DUP (?)
+array SDWORD 10, -1, 5, 11, 32, 4
+
 .code
-main proc
-LEA EDX,msg
-call writeString
-call crlf
-MOV EBX,OFFSET LIST
-MOV ECX, 10
-input:
-	call readint
-	mov [EBX],EAX
-	ADD EBX,4
-	CALL crlf 
-	loop input ; end of loop
-	LEA EBX,LIST
-	mov ecx,10
-output:
-	mov EAX,[EBX]
-	call writeInt
-	call crlf
-	ADD EBX,4
-loop output
+main PROC
+	mov ESI, offset array ; load address of array 
+	mov ebx, [esi] ; ebx contain minimum 
+	mov ecx, lengthof array ; counter for loop
+	L1:
+		add esi,4
+		cmp [esi],ebx
+		jl smaller
+		loop L1
+		jmp found
 
+	smaller:
+	mov ebx,[esi] 
+	cmp ecx,0
+	je found
+	loop L1
+	
+found:
+	mov EAX, EBX
+	call writeint
+	call waitmsg
+		
 
-INVOKE ExitProcess,0 
-main endp
-end main
+		
+	
+main ENDP
+END main
