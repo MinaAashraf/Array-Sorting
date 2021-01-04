@@ -1,5 +1,5 @@
 ; TEST - testing some stuff in assembly..
-; First Array in Assembly..
+; Accessing elements of array..
 .386
 include Irvine32.inc
 .model flat, stdcall
@@ -15,17 +15,21 @@ ExitProcess proto, dwExitCode: dword
 
 .code
 main proc
-	mov  eax, fourbyteArr
+	mov  ebx, offset fourbyteArr				;saving the memory address of the beginning of the array
+	mov  eax, [ebx]								;eax = first element of the array
 	call writeInt
 	mov  edx, offset msg
 	call writeString
-	mov  eax, fourbyteArr[4]
+	mov  eax, [ebx+4]							;eax = second element of the array
 	call writeInt
 	call writeString
-	mov  eax, fourbyteArr[8]
+	mov  eax, [ebx+8]							;eax = 3rd element of the array
 	call writeInt
 	call writeString
-	mov  eax, fourbyteArr[16]
+	mov  eax, [ebx+12]							;eax = 4th element of the array
+	call writeInt
+	call writeString
+	mov  eax, [ebx+16]							;eax = 5th element of the array
 	call writeInt
 
 	call crlf
