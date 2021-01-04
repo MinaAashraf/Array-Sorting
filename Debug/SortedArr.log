@@ -1,2 +1,3 @@
 ﻿  Assembling SortArr.asm...
+SortArr.asm(32): warning A5001: expression expected, assume value 0
   SortedArr.vcxproj -> D:\sa\Microprocessors\Sorted-Arr\Debug\SortedArr.exe

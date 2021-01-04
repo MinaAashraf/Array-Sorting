@@ -28,17 +28,42 @@ main proc
  mov var2,eax 
  ;call crlf
 
- ; print 2 variables
- mov edx,offset msg1
- call writestring 
- mov eax,var1
- call writeint ;function display number to user
- call crlf
- mov edx,offset msg2
- call writestring 
+ ;sort two variable 
+ IF
+ mov eax ,var1
+ cmp eax ,var2
+ jng else
+ call writeint 
+ call crlf 
  mov eax,var2
  call writeint 
  call crlf
+ jl end
+
+ ELSE
+ 
+ mov eax,var2
+ call writeint 
+ call crlf
+ mov eax ,var1
+ call writeint 
+ call crlf 
+
+ENDIF
+
+
+
+ ; print 2 variables
+ ;mov edx,offset msg1
+ ;all writestring 
+ ;mov eax,var1
+ ;all writeint ;function display number to user
+ ;call crlf
+ ;ov edx,offset msg2
+ ;call writestring 
+ ;ov eax,var2
+ ;call writeint 
+ ;cal crlf
 
  
 
