@@ -12,6 +12,7 @@ ExitProcess proto, dwExitCode: dword
 ; insertionSort procedure..
 insertionSort proc
 	
+	ret
 insertionSort endp
 
 main proc
