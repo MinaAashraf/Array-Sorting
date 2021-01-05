@@ -2,7 +2,11 @@
 <Project>
   <ProjectOutputs>
     <ProjectOutput>
+<<<<<<< HEAD
       <FullPath>C:\Users\ashra\source\repos\SortedArr\Debug\SortedArr.exe</FullPath>
+=======
+      <FullPath>D:\المحاضرات\تالته حاسبات\Micropocessors\Micro - project\Mina 2\Sorted-Arr\Debug\SortedArr.exe</FullPath>
+>>>>>>> 4e411a7ca282d8c6e63de8b401df755b32920f35
     </ProjectOutput>
   </ProjectOutputs>
   <ContentFiles />

@@ -1,3 +1,7 @@
 ﻿  Assembling SortArr.asm...
+<<<<<<< HEAD
 SortArr.asm(3): warning A4011: multiple .MODEL directives found : .MODEL ignored
   SortedArr.vcxproj -> C:\Users\ashra\source\repos\SortedArr\Debug\SortedArr.exe
+=======
+  SortedArr.vcxproj -> D:\المحاضرات\تالته حاسبات\Micropocessors\Micro - project\Mina 2\Sorted-Arr\Debug\SortedArr.exe
+>>>>>>> 4e411a7ca282d8c6e63de8b401df755b32920f35

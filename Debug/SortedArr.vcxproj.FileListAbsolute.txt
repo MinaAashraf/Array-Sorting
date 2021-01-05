@@ -1,2 +1,7 @@
 C:\Users\ashra\source\repos\SortedArr\Debug\SortedArr.exe
 C:\Users\ashra\source\repos\SortedArr\Debug\SortedArr.pdb
+<<<<<<< HEAD
+=======
+D:\المحاضرات\تالته حاسبات\Micropocessors\Micro - project\Mina 2\Sorted-Arr\Debug\SortedArr.exe
+D:\المحاضرات\تالته حاسبات\Micropocessors\Micro - project\Mina 2\Sorted-Arr\Debug\SortedArr.pdb
+>>>>>>> 4e411a7ca282d8c6e63de8b401df755b32920f35
