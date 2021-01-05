@@ -1,3 +1,11 @@
-﻿  Assembling TEST.asm...
-TEST.asm(4): warning A4011: multiple .MODEL directives found : .MODEL ignored
-  SortedArr.vcxproj -> E:\Academic Stuff\My College\3rd Computer Systems Engineering\1st Term\Microprocessor\Project\Project Repository on Github\Sorted-Arr\Debug\SortedArr.exe
+﻿  Assembling insertionSort.asm...
+insertionSort.asm(16): warning A4011: multiple .MODEL directives found : .MODEL ignored
+insertionSort.asm(36): error A2022: instruction operands must be the same size
+insertionSort.asm(38): error A2022: instruction operands must be the same size
+insertionSort.asm(39): error A2022: instruction operands must be the same size
+insertionSort.asm(44): error A2022: instruction operands must be the same size
+insertionSort.asm(47): error A2022: instruction operands must be the same size
+insertionSort.asm(48): error A2022: instruction operands must be the same size
+insertionSort.asm(53): error A2022: instruction operands must be the same size
+insertionSort.asm(54): error A2022: instruction operands must be the same size
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\BuildCustomizations\masm.targets(70,5): error MSB3721: The command "ml.exe /c /nologo /Zi /Fo"Debug\insertionSort.obj" /I "E:\Irvine" /W3 /errorReport:prompt  /TainsertionSort.asm" exited with code 1.
