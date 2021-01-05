@@ -53,22 +53,22 @@ main proc
 		jge  exitLoop1
 		mov  edx, arr[4*ecx]
 		mov  temp, edx					;storing the element (i) into the temporary variable, temp
-		mov  edi, 0						;clear edi
-		mov  edi, ecx					;edi = ecx (inner loop counter, starts from outer loop counter) (j=i)
+		push ecx						;saving the outer loop counter
 		loop2:
-			cmp  edi, 0					;inner loop first condition (i<5)
+			cmp  ecx, 0					;inner loop first condition (i<5)
 			jle  exitLoop2
-			cmp  edx, arr[4*edi-4]		;inner loop second condition (temp<arr[j-1])
+			cmp  edx, arr[4*ecx-4]		;inner loop second condition (temp<arr[j-1])
 			jg   exitLoop2
 			mov  esi, 0					;clear edx
-			mov  esi, arr[4*edi-4]		;edx = arr[j-1]
-			mov  arr[4*edi], esi		;arr[j] = edx
-			dec  edi					;edi-- (j--)
+			mov  esi, arr[4*ecx-4]		;edx = arr[j-1]
+			mov  arr[4*ecx], esi		;arr[j] = edx
+			dec  ecx					;ecx-- (j--)
 			jmp  Loop2
 		exitLoop2:
 		mov  edx, 0						;clear edx
 		mov  edx, temp					;edx = temp
-		mov  arr[4*edi], edx			;arr[j] = edx
+		mov  arr[4*ecx], edx			;arr[j] = edx
+		pop  ecx						;restore the outer loop counter
 		inc  ecx						;ecx++ (i++)
 		jmp  Loop1
 	exitLoop1:
