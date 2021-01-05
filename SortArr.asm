@@ -24,56 +24,62 @@ Reverse     	dword ?
 
 main proc
 	
-num:	mov edx,OFFSET Num_msg			; displaying number of inputs message
+num:	mov edx,OFFSET Num_msg				; displaying number of inputs message
 		call WriteString						
 		call Crlf			
-		call ReadInt			; input the number of itration in Eax
-		mov Ebx,1			; making sure num of elements is more than 0 
+		call ReadInt				; input the number of itration in Eax
+		mov Itr,Eax
+		pushf								
+		pop Eax
+		mov Ebx,2048				; to check if valid int input
+		and Ebx,Eax
+		cmp Ebx,0
+		jne num
+		mov Ebx,1				; making sure num of elements is more than 0 
 		cmp Eax,Ebx
 		jl num
-		mov Itr,Eax
-		mov Ecx,Itr			; moving the number of iteration in Ecx for looping
+		mov Ecx,Itr				; moving the number of iteration in Ecx for looping
 
+		mov edi,OFFSET Array			; for storring 
+		mov esi,OFFSET Array			; for loading
 
-		mov edi,OFFSET Array		; for storring 
-		mov esi,OFFSET Array		; for loading
-
-Input:   mov   edx,OFFSET Input_msg		; input loop 
+Input:   mov   edx,OFFSET Input_msg			; input loop 
 		 call  WriteString
 		 call  Crlf
-		 call  ReadInt			; input integer into EAX
-		 ;cmp Eax,0
-		 ;je Input
-		 ;mov Eax,Ecx
-		 ;call  WriteInt
-		 ;call  Crlf
-		 stosd				; storing data in memory
-   		 Loop  Input			; repeat the loop
+		 call  ReadInt				; input integer into EAX
+		 pushf								
+		 pop Eax
+		 mov Ebx,2048				; to check if valid int input
+		 and Ebx,Eax
+		 cmp Ebx,0
+		 jne Input
+		 stosd					; storing data in memory
+   		 Loop  Input				; repeat the loop
 		 
-sort:	 mov edx,OFFSET Sort_type_msg		; getting sotring type
+sort:	 mov edx,OFFSET Sort_type_msg			; getting sotring type
 		 call WriteString
 		 call Crlf
 		 call ReadInt
-		 mov Ebx,3			; making sure that the input is between 1 & 2 & 3
+		 mov Ebx,3				; making sure that the input is between 1 & 2 & 3
 		 cmp Eax,Ebx
 		 jg sort
 		 mov Ebx,1
 		 cmp Eax,Ebx
 		 jl sort
-		 mov Sort_type,Eax		; assining Sort_type with the input
+		 mov Sort_type,Eax			; assining Sort_type with the input
 
-rev:	 mov edx,OFFSET Reverse_ornot_msg	; getting ascending or descending sorting type
+rev:	 mov edx,OFFSET Reverse_ornot_msg		; getting ascending or descending sorting type
 		 call WriteString
 		 call Crlf
 		 call ReadInt
-		 mov Ebx,1			; making sure that the input is 0 or 1
+		 mov Ebx,1				; making sure that the input is 0 or 1
 		 cmp Eax,Ebx
 		 jg rev
 		 mov Ebx,0
 		 cmp Eax,Ebx
 		 jl rev
-		 mov Reverse,Eax                ; assigning Reverse with the input
+		 mov Reverse,Eax                    	; assigning Reverse with the input
 
-		 exit
+	exit
 main endp
 end main
