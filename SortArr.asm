@@ -2,8 +2,9 @@
 include irvine32.inc ; include labriry
 
 .data ; data area // memory area
-
+ array BYTE 3 DUP(?) ; intial array length 3
  msg BYTE "enter two variables ?",0 ; message  to user 
+ ;shap output string 
  msg1 BYTE "var1 = ",0
  msg2  BYTE "var2 = ",0
  msg3 BYTE "sort 2 number ",0
@@ -38,7 +39,7 @@ main proc
  call crlf
 
  IF
- mov eax ,var1
+ mov R8D ,var1
  cmp eax ,var2
  jng else
  call writeint 
@@ -115,5 +116,7 @@ call writeint
 
 
     invoke ExitProcess,0
+   ; .EXIT ; dont work in 32 bit 
+
 main endp
 end main
