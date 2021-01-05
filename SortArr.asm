@@ -1,10 +1,3 @@
-.386
-.model flat,stdcall
-.stack 4096
-ExitProcess proto,dwExitCode:dword
-
-INCLUDE Irvine32.inc ; including irvine library 
-
 .data
 
 ; Inputs Data ***************************************************************
@@ -97,11 +90,3 @@ rev:	mov edx,OFFSET Reverse_ornot_msg		; getting ascending or descending sorting
 		je Selection_Sort
 		cmp Sort_type,3				;if(Sort_type == 3)goto Insertion_sort
 		je Insertion_sort	
-
-Bubble_Sort:
-Selection_Sort:	
-Insertion_sort:		
-		exit
-
-main endp
-end main
