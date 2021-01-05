@@ -2,13 +2,14 @@
 
 INCLUDE Irvine32.inc ; including irvine library 
 .data
+; Inputs Data ***************************************************************
 Array		dword 100009 dup (0)
 Itr			dword ?
 Input_msg			BYTE "Enter a 32-bit signed integer: ",0
 Output_msg			BYTE "The Numbers You Inserted are: ",0
 Num_msg BYTE "Enter the number of Elements you want to insert: ",0
 
-; My data ************************************************************************
+; Sort algorithm data  *****************************************************
 outLoop	 DWORD ? ; counter for the outer loop
 inLoop   DWORD ? ; counter for the inner loop 
 comma    BYTE ", ",0 
@@ -61,8 +62,8 @@ L3:							; when arr[in] < arr[in+1]
 cmp ECX,1					; this comparison is used if the two last elements in array are sorted, so the loop must be finished 
 je next
 loop L2
-next:
 
+next:
 mov inLoop,0				; initialize the inLoop counter to start from zero 
 pop ECX						; retrieve (ECX = outLoop) counter of outer loop from the stack
 cmp ECX,1					; outer loop finishes when ECX=1
@@ -81,12 +82,11 @@ MOV ECX,Itr
 print:						; loop for each element in array then print it 
 MOV EAX,[ESI]
 CALL writeint
-LEA EDX,comma
+LEA EDX,comma				; add comma after each element 
 CALL writeString
-ADD ESI,4
+ADD ESI,4					
 loop print
 call crlf
-
-call waitmsg
+call waitmsg				; wait to show the output for user
 main ENDP
 END main
