@@ -52,6 +52,7 @@ main proc
 		stosd								;storing data in memory
 		loop Input							;repeat the loop
 	;end Input handling section
+	;----------------------------------------------------------------------------------------------------------
 
 	;Insertion Sort Algorithm..
 	mov  ecx, 0								;clear ecx register
@@ -81,10 +82,13 @@ main proc
 		jmp  Loop1
 	exitLoop1:
 	;end insertionSort algorithm section
+	;----------------------------------------------------------------------------------------------------------
 
 
 	;Output handling section (Mina Ashraf)
 
+	;end output handling section
+	;----------------------------------------------------------------------------------------------------------
 
 	;just a new line..
 	call crlf

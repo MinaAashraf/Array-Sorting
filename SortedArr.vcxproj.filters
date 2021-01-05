@@ -7,7 +7,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <MASM Include="insertionSort.asm">
+    <MASM Include="SortArr.asm">
       <Filter>Source Files</Filter>
     </MASM>
   </ItemGroup>
