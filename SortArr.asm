@@ -15,25 +15,7 @@ comma    BYTE ", ",0
 msg1     BYTE "The Ascending sort of the array is ",0 
 .code
 main PROC
-;Input section 
-;----------------------------
-mov edx,OFFSET Num_msg 
-	call WriteString	
-	call Crlf			
-	call ReadInt		; input the number of itration in Eax
-	call Crlf
-	mov Itr,Eax
-	mov Ecx,Itr			; moving the number of iteration in Ecx for looping
 
-	mov edi,OFFSET Array ; for storring
-	mov esi,OFFSET Array ; for loading
-
-Input:   mov   edx,OFFSET Input_msg  ; input loop 
-		 call  WriteString
-		 call Crlf
-		 call  ReadInt			     ; input integer into EAX
-		 stosd						 ; storing data in memory
-   		 Loop  Input                 ; repeat the loop
 
 ;*****************************************
 ; Bubble_Sort Algorithm
