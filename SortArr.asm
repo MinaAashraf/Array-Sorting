@@ -1,8 +1,24 @@
+;Bubble Sort Algorithm
 
+INCLUDE Irvine32.inc ; including irvine library 
+.data
+; Inputs Data ***************************************************************
+Array		dword 100009 dup (0)
+Itr			dword ?
+Input_msg			BYTE "Enter a 32-bit signed integer: ",0
+Output_msg			BYTE "The Numbers You Inserted are: ",0
+Num_msg BYTE "Enter the number of Elements you want to insert: ",0
+
+; Sort algorithm data  *****************************************************
+outLoop	 DWORD ? ; counter for the outer loop
+inLoop   DWORD ? ; counter for the inner loop 
+comma    BYTE ", ",0 
+msg1     BYTE "The Ascending sort of the array is ",0 
+.code
+main PROC
 
 
 ;*****************************************
-; head head head +++++++++++++++++++++++++++++++++++++++++++++++++++++++
 ; Bubble_Sort Algorithm
 ;------------------------
 lea ESI, Array				; Load ESI with beggining address of the Array
@@ -54,4 +70,23 @@ cmp ECX,1					; outer loop finishes when ECX=1
 jbe finish 
 loop l1
 finish:
-; tail tail tail  +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+; End of loop 1
+
+; Loop for printing array after sorting 
+LEA EDX,msg1				; lodad the msg1 address in EDX register 
+call writeString			; print "The Ascending sort of the array is "
+call crlf					; print empty line
+LEA ESI,Array				; load start address of Array
+MOV ECX,Itr
+print:						; loop for each element in array then print it 
+MOV EAX,[ESI]
+CALL writeint
+LEA EDX,comma				; add comma after each element 
+CALL writeString
+ADD ESI,4					
+loop print
+call crlf
+call waitmsg				; wait to show the output for user
+main ENDP
+END main
