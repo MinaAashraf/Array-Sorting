@@ -11,7 +11,7 @@ Reverse  dword 1
 .code
 
 main proc
-
+ Output:
  cmp Reverse , 0                ; Check ascending (Reverse = 0) Or descending (Reverse = 1)
  jz output                      ; If (reverse = 0) goto output directly to print the sorted array without reversing (ASSENDING SORT)
 
