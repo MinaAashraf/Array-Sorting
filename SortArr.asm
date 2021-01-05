@@ -26,8 +26,9 @@ main proc
 
 ; This part of code was written by Mostsafa Mahmoud Mostafa 
 ; For handling input validation storage
-	
-num:		mov edx,OFFSET Num_msg			; displaying number of inputs message
+
+; getting the length of the Array	
+num:	mov edx,OFFSET Num_msg				; displaying number of inputs message
 		call WriteString						
 		call Crlf			
 		call ReadInt				; input the number of itration in Eax
@@ -36,16 +37,18 @@ num:		mov edx,OFFSET Num_msg			; displaying number of inputs message
 		pop Eax					; Eax = EFLAG
 		mov Ebx,2048				; to check if valid int input
 		and Ebx,Eax				; ebx &= eax
-		cmp Ebx,0				; jmb if 	
+		cmp Ebx,0				; if ( unvalid input) goto num	
 		jne num
+		mov eax,Itr							
 		mov Ebx,1				; making sure num of elements is more than 0 
-		cmp Eax,Ebx
+		cmp Eax,Ebx				; if ( Itr <= 0 ) goto num
 		jl num
 		mov Ecx,Itr				; moving the number of iteration in Ecx for looping
 
-		mov edi,OFFSET Array			; for storring 
+		mov edi,OFFSET Array			; for stoaring 
 		mov esi,OFFSET Array			; for loading
 
+; getting the elements from the user
 Input:   	mov   edx,OFFSET Input_msg		; input loop 
 		call  WriteString
 		call  Crlf
@@ -58,29 +61,33 @@ Input:   	mov   edx,OFFSET Input_msg		; input loop
 		jne Input
 		stosd					; storing data in memory
    		Loop  Input				; repeat the loop
-		 
+
+; getting the Sorting type from the user
 sort:	 	mov edx,OFFSET Sort_type_msg		; getting sotring type
 		call WriteString
 		call Crlf
 		call ReadInt
 		mov Ebx,3				; making sure that the input is between 1 & 2 & 3
-		cmp Eax,Ebx
+		cmp Eax,Ebx				; if ( eax > 3 ) goto sort	
 		jg sort
 		mov Ebx,1
-		cmp Eax,Ebx
+		cmp Eax,Ebx			
 		jl sort
 		mov Sort_type,Eax			; assining Sort_type with the input
 
-rev:	 	mov edx,OFFSET Reverse_ornot_msg	; getting ascending or descending sorting type
+
+; getting the ascending or descending from the user
+
+rev:	mov edx,OFFSET Reverse_ornot_msg		; getting ascending or descending sorting type
 		call WriteString
 		call Crlf
 		call ReadInt
 		mov Ebx,1				; making sure that the input is 0 or 1
-		cmp Eax,Ebx
+		cmp Eax,Ebx				; if ( eax > ebx ) goto rev
 		jg rev
-		mov Ebx,0
-		cmp Eax,Ebx
-		jl rev
+		mov Ebx,0				
+		cmp Eax,Ebx				; if ( eax < 0 ) goto rev
+		jl rev	
 		mov Reverse,Eax                    	; assigning Reverse with the input
 		
 		cmp Sort_type,1				; if( Sort_type == 1 )goto Bubble_Sort
@@ -88,8 +95,11 @@ rev:	 	mov edx,OFFSET Reverse_ornot_msg	; getting ascending or descending sortin
 		cmp Sort_type,2				;if( Sort_type == 2)goto Selection_Sort
 		je Selection_Sort
 		cmp Sort_type,3				;if(Sort_type == 3)goto Insertion_sort
-		je Insertion_sort
-					
+		je Insertion_sort	
+
+Bubble_Sort:
+Selection_Sort:	
+Insertion_sort:
 		exit
 
 main endp
