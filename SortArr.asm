@@ -32,6 +32,7 @@ main proc
  ;call crlf
 
  ;sort two variable 
+ ;test if condition 
  Mov edx ,offset msg3
  call writestring 
  call crlf
