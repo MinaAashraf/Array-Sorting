@@ -1,60 +1,43 @@
-.386
-include Irvine32.inc
-.model flat, stdcall
-ExitProcess proto, dwExitCode: dword
-.stack 4096
 
 .data
-	; Inputs Data ***************************************************************
-	Num_msg			BYTE "Enter the number of numbers you want to insert: ",0
-	Input_msg		BYTE "Enter a 32-bit signed integer: ",0
-	Output_msg		BYTE "The Numbers You Inserted are: ",0
-	Sort_type_msg		BYTE "Enter 1 for Bubble sort 2 for Selection sort 3 for Insertion sort: ",0
-	Reverse_ornot_msg	BYTE "Enter 1 for 0 for Ascending sorting and 1 for descending sorting",0
+
+.386
+include irvine32.inc
+.model flat,stdcall
+.stack 4096
+.data
+
+; Inputs Data ***************************************************************
+
+Num_msg			BYTE "Enter the number of numbers you want to insert: ",0
+Input_msg		BYTE "Enter a 32-bit signed integer: ",0
+Output_msg		BYTE "The Numbers You Inserted are: ",0
+Sort_type_msg		BYTE "Enter 1 for Bubble sort 2 for Selection sort 3 for Insertion sort: ",0
+Reverse_ornot_msg	BYTE "Enter 1 for 0 for Ascending sorting and 1 for descending sorting",0
 	
-	Array		dword 100009 dup (0)
-	Itr		dword ?
-	Sort_type	dword ?
-	Reverse     	dword ?
+Array		dword 100009 dup (0)
+Itr		dword ?
+Sort_type	dword ?
+Reverse     	dword ?
 
-	; Sort algorithm data  *****************************************************
-	outLoop	 DWORD ? ; counter for the outer loop
-	inLoop   DWORD ? ; counter for the inner loop 
-	comma    BYTE ", ",0 
-	msg1     BYTE "The Ascending sort of the array is ",0 
+; Sort algorithm data  *****************************************************
+outLoop	 DWORD ? ; counter for the outer loop
+inLoop   DWORD ? ; counter for the inner loop 
+comma    BYTE ", ",0 
+msg1     BYTE "The Ascending sort of the array is ",0 
 
 
-	; Insertion Algorithm data ************************************************
+; Insertion Algorithm data ************************************************
 	temp       dd ?
 
 .code
+
 main proc
-	; This part of code was written by Mostsafa Mahmoud Mostafa 
-	; For handling input validation storage
 
-	;Input handling section (Moustafa Mahmoud)
-	mov  edx, 0								;clear edx register
-	mov  edx, offset Num_msg
-	call writeString
-	call crlf
-	call readInt							;the number of elements of the array, stored in eax
-	call crlf
-	mov  Itr, eax
-	mov  ecx, Itr							;moving the number of iteration (elements) in ecx for looping
+; This part of code was written by Mostsafa Mahmoud Mostafa 
+; For handling input validation storage
 
-	mov  edi, offset Array					;for storing
-	mov  esi, offset Array					;for loading
-
-	Input:									;input loop
-		mov  edx, 0							;just clear edx register
-		mov  edx, offset Input_msg
-		call writeString
-		call crlf
-		call readInt						;input integer into eax
-		stosd								;storing data in memory
-		loop Input							;repeat the loop
-	
-	; getting the length of the Array	
+; getting the length of the Array	
 num:	mov edx,OFFSET Num_msg				; displaying number of inputs message
 		call WriteString						
 		call Crlf			
@@ -75,7 +58,7 @@ num:	mov edx,OFFSET Num_msg				; displaying number of inputs message
 		mov edi,OFFSET Array			; for stoaring 
 		mov esi,OFFSET Array			; for loading
 
-	; getting the elements from the user
+; getting the elements from the user
 Input:   	mov   edx,OFFSET Input_msg		; input loop 
 		call  WriteString
 		call  Crlf
@@ -197,7 +180,6 @@ call crlf
 call waitmsg				; wait to show the output for user
 
 ;**************************
-
 ;Insertion Sort Algorithm..
 Insertion_Sort:
 	mov  ecx, 0								;clear ecx register
@@ -230,7 +212,7 @@ Insertion_Sort:
 	;----------------------------------------------------------------------------------------------------------
 
 ;**************************
-Output: 
+output: 
  cmp Reverse , 0                ; Check ascending (Reverse = 0) Or descending (Reverse = 1)
  jz output                      ; If (reverse = 0) goto output directly to print the sorted array without reversing (ASSENDING SORT)
 
@@ -278,7 +260,7 @@ Output:
                
     loop loop2
 
-	;mhmd hani
+
     invoke ExitProcess,0
 main endp
 end main
