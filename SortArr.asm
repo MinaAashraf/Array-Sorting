@@ -181,7 +181,6 @@ call waitmsg				; wait to show the output for user
 
 ;**************************
 ;Insertion Sort Algorithm..
-
 Insertion_Sort:
 	mov  ecx, 0								;clear ecx register
 	mov  ecx, 1								;ecx = 1 (outer loop counter, starts from 1) (i=1)
