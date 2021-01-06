@@ -7,7 +7,7 @@ include irvine32.inc ; include labriry
  ;shap output string 
   
   ;intial variable 
-  var1 DWORD 5
+  var1 DWORD 4
   index DWORD 0
   x_ptr DWORD 8
   y_ptr DWORD 7
@@ -32,22 +32,55 @@ main proc
      ;swap function 
      @
 
+     ;sort array
+     COMMENT @
+      mov esi,offset array
+      mov ecx,0
+      mov edx ,4
+    mov eax,[esi+edx]
+    call writeint 
+
+ loop1:
+  ;   mov eax,[esi+edx]
+ ;    mov ebx,[esi+edx]
+IF
+     cmp [esi+edx],eax
+     jmp ELSE
+     ;swap
+     mov x_ptr,esi+ecx
+     mov y_ptr,esi+edx
+     jmp function_swap
+
+ELSE 
+l1:
+  add ecx,4
+  add edx,4
+  jmp loop1
+
+ ENDIF
+
+ 
+ @
+ mov x_ptr,offset array
+ mov  y_ptr,offset array+4
+    
+jmp function_swap
 
 
-     mov x_ptr,5
-     mov y_ptr,6
      
-    jmp function_swap
+   
 
 function_swap:
-mov esi,offset x_ptr
+mov esi, x_ptr
 mov eax,[esi]
-mov edi,offset y_ptr   
+mov edi, y_ptr   
 mov edx,[edi]
 mov [esi],edx
 mov [edi],eax
+;jp l1
 
 
+COMMENT @
 mov eax,x_ptr
 call writeint ;x_ptr=7
 call crlf 
@@ -57,11 +90,11 @@ call writeint ;x_ptr=8
 
 
 call crlf 
- 
+ @
 
 
 
- COMMENT @
+
  ;print array
  mov index, offset array 
  mov ecx,3
@@ -78,7 +111,7 @@ call crlf
 
  
  
- @
+ 
 
   
     
