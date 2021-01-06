@@ -20,7 +20,7 @@ Itr		dword ?
 Sort_type	dword ?
 Reverse     	dword ?
 
-; Sort algorithm data  *****************************************************
+; Bubble Sort algorithm data  *****************************************************
 outLoop	 DWORD ? ; counter for the outer loop
 inLoop   DWORD ? ; counter for the inner loop 
 comma    BYTE ", ",0 
