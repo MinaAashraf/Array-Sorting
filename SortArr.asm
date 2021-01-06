@@ -2,7 +2,7 @@
 include irvine32.inc ; include labriry
 
 .data ; data area // memory area
- array DWORD 16,2,5 ; intial array length 3
+ array DWORD 16,2,5,1 ; intial array length 3
  msg BYTE "enter two variables ?",0 ; message  to user 
  ;shap output string 
   
@@ -15,28 +15,43 @@ include irvine32.inc ; include labriry
 .code ; instruction area 
 main proc
   
- mov eax,0
-  mov ecx,5
-  l1:
-  push ecx
-  mov ecx,2
-     l2:
-     add eax,1
-     call writeint 
-     call crlf 
-     
+ mov esi ,offset array ; adress array 
+ mov ecx,4 ;ecx=i=lenght-1
 
-     loop l2
-  pop ecx
-  call crlf
-  loop l1
+          l1:
+          push ecx
+          mov ebx,0 ;index maxmum
+          ;j=ecx
+          mov edx ,ecx
+          mov ecx ,edx
+                     l2:
+                     pop edx
+                     mov edx,[esi+ebx]
+                     cmp [esi+ecx],edx
+                     jmp none
+                     ;indexmamxmum =j
+                     mov ebx,ecx
+                     push edx
+
+
+                     loop l2
+           none:
+                 push edx
+                 mov edx,0
+                      pop ecx
+                      mov edx,[esi+ebx]
+                     mov x_ptr,edx
+                     mov edx,[esi+ecx]
+                     mov  y_ptr,esi+ecx
+                    jmp function_swap
+
+            backloop1:
+          loop l1
  
 
   
- mov x_ptr,offset array
- mov  y_ptr,offset array+4
+ 
     
-jmp function_swap
 
 
      
@@ -49,7 +64,11 @@ mov edi, y_ptr
 mov edx,[edi]
 mov [esi],edx
 mov [edi],eax
-;jp l1
+jmp backloop1
+
+
+
+
 
 
 
@@ -67,8 +86,12 @@ mov [edi],eax
 
 
 
-
  
+
+ mov edx,4
+ mov eax,4
+ mov [offset array+4+edx],eax
+ call writeint 
  
  
 
