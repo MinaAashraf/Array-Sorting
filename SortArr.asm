@@ -7,60 +7,29 @@ include irvine32.inc ; include labriry
  ;shap output string 
   
   ;intial variable 
-  var1 DWORD 4
-  index DWORD 0
-  x_ptr DWORD 8
-  y_ptr DWORD 7
+ 
+  x_ptr DWORD 0
+  y_ptr DWORD 0
 
 
 .code ; instruction area 
 main proc
   
-  COMMENT @
- ; accessing fisrt element 
-     mov index, offset array 
-     mov ecx,3
-     again:
-     mov eax,var1
-     mov [offset array],eax
-     inc var1
-     add index ,4
+  mov ecx,5
+  l1:
+  push ecx
+  mov ecx,2
+     l2:
      
-     loop again
-     mov [index+4],10
-     mov [index+8],10
-     ;swap function 
-     @
+     
 
-     ;sort array
-     COMMENT @
-      mov esi,offset array
-      mov ecx,0
-      mov edx ,4
-    mov eax,[esi+edx]
-    call writeint 
-
- loop1:
-  ;   mov eax,[esi+edx]
- ;    mov ebx,[esi+edx]
-IF
-     cmp [esi+edx],eax
-     jmp ELSE
-     ;swap
-     mov x_ptr,esi+ecx
-     mov y_ptr,esi+edx
-     jmp function_swap
-
-ELSE 
-l1:
-  add ecx,4
-  add edx,4
-  jmp loop1
-
- ENDIF
-
+     loop l2
+  pop ecx
  
- @
+  loop l1
+ 
+
+  
  mov x_ptr,offset array
  mov  y_ptr,offset array+4
     
@@ -80,28 +49,15 @@ mov [edi],eax
 ;jp l1
 
 
-COMMENT @
-mov eax,x_ptr
-call writeint ;x_ptr=7
-call crlf 
-mov eax,y_ptr
-call writeint ;x_ptr=8
-
-
-
-call crlf 
- @
-
 
 
 
  ;print array
- mov index, offset array 
+ mov esi, offset array 
  mov ecx,3
  again2:
- mov ebx,index
- mov eax,[ebx]
- add index,4
+ mov eax,[esi]
+ add esi,4
  call writeint 
  call crlf
  loop again2
