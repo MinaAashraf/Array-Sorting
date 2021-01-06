@@ -7,13 +7,13 @@ Bubble Sort, Selection Sort, Insertion Sort (depending on the user desire) and p
 
 
 - Project Contributers:	
-	-	      Name						 	Role							     Branch Name
-	-	1- Mostafa Mahmoud				Handling Input validation and representation  					Input			
-	-	2- Mohamed Ali					Creating Bubble sort algorithm							Bubble_Sort
-	-	4- Mohamed Hany					Creating Insertion Sort algorithm						Insertion_Sort
-	-	5- Mahmoud Abdelwahab				Creating Selection sort algorithm						election_Sort
-	-	5- Mina Ashraf					Handling  output after Sorting 							Master 
-	
+	- Name						 	   Role					           Branch Name
+	-	-1- Mostafa Mahmoud				- Handling Input validation and representation  		- Input			
+	-	2- Mohamed Ali					Creating Bubble sort algorithm				Bubble_Sort
+	-	4- Mohamed Hany					Creating Insertion Sort algorithm			Insertion_Sort
+	-	5- Mahmoud Abdelwahab				Creating Selection sort algorithm			election_Sort
+	-	5- Mina Ashraf					Handling  output after Sorting 				Master 
+
 	
 - Project Language:		Assembly Programming Language 	
 
