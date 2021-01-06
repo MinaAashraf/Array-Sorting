@@ -1,14 +1,4 @@
 # Sorted-Arr
-<<<<<<< HEAD
-Assemby program that takes array of numbers from the user, sorts it with one of the three simple algorithms (depending on the user desire) and prints the sorted array.
-
-Tools: MASM32, Irvine32 Library, Visual Studio 
-=======
-<<<<<<< HEAD
-Assemby program that takes array of numbers from the user, sorts it with one of the three simple algorithms (depending on the user desire) and prints the sorted array.
-
-Tools: MASM32, Irvine32 Library, Visual Studio 
-=======
 - Project Summary:
 An Assemby program that takes array of numbers from the user, sorts it with one of the three simple algorithms
 Bubble Sort, Selection Sort, Insertion Sort (depending on the user desire) and prints the sorted array.
@@ -32,12 +22,4 @@ Bubble Sort, Selection Sort, Insertion Sort (depending on the user desire) and p
 
 - Project Description
 - Project Referances: playLists, books,  
-		
-	
-	
-	
-	
-	
 
->>>>>>> 4e411a7ca282d8c6e63de8b401df755b32920f35
->>>>>>> master
