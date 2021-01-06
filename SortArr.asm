@@ -15,17 +15,20 @@ include irvine32.inc ; include labriry
 .code ; instruction area 
 main proc
   
+ mov eax,0
   mov ecx,5
   l1:
   push ecx
   mov ecx,2
      l2:
-     
+     add eax,1
+     call writeint 
+     call crlf 
      
 
      loop l2
   pop ecx
- 
+  call crlf
   loop l1
  
 
