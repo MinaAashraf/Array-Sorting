@@ -2,7 +2,19 @@
 <Project>
   <ProjectOutputs>
     <ProjectOutput>
+<<<<<<< HEAD
+<<<<<<< HEAD
       <FullPath>C:\Users\ashra\source\repos\SortedArr\Debug\SortedArr.exe</FullPath>
+=======
+<<<<<<< HEAD
+      <FullPath>C:\Users\ashra\source\repos\SortedArr\Debug\SortedArr.exe</FullPath>
+=======
+      <FullPath>D:\المحاضرات\تالته حاسبات\Micropocessors\Micro - project\Mina 2\Sorted-Arr\Debug\SortedArr.exe</FullPath>
+>>>>>>> 4e411a7ca282d8c6e63de8b401df755b32920f35
+>>>>>>> master
+=======
+      <FullPath>E:\Academic Stuff\My College\3rd Computer Systems Engineering\1st Term\Microprocessor\Project\Project Repository on Github\Sorted-Arr\Debug\SortedArr.exe</FullPath>
+>>>>>>> 21272e727fe184a6188779375fcb6c85a2ee5c00
     </ProjectOutput>
   </ProjectOutputs>
   <ContentFiles />
