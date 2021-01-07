@@ -1,3 +1,2 @@
 ﻿  Assembling SortArr.asm...
-SortArr.asm(45): error A2032: invalid use of register
-C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\BuildCustomizations\masm.targets(70,5): error MSB3721: The command "ml.exe /c /nologo /Zi /Fo"Debug\SortArr.obj" /I "C:\Irvine" /W3 /errorReport:prompt  /TaSortArr.asm" exited with code 1.
+  SortedArr.vcxproj -> D:\sa\Microprocessors\Sorted-Arr\Debug\SortedArr.exe

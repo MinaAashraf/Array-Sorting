@@ -2,6 +2,7 @@
 include irvine32.inc ; include labriry
 
 .data ; data area // memory area
+            ;0  4 8 12
  array DWORD 16,2,5,1 ; intial array length 3
  msg BYTE "enter two variables ?",0 ; message  to user 
  ;shap output string 
@@ -10,43 +11,62 @@ include irvine32.inc ; include labriry
  
   x_ptr DWORD 0
   y_ptr DWORD 0
+  index_max DWORD ?
+  var2 DWORD ?
+  InnerCounter Dword ?
+  OuterCounter Dword ?
 
 
 .code ; instruction area 
 main proc
-  
- mov esi ,offset array ; adress array 
- mov ecx,4 ;ecx=i=lenght-1
+   
+   lea ESI,  array	
+   mov eax,4 ;length
+   dec eax   
+   mov OuterCounter,eax
+   mov ecx,OuterCounter
+   push ecx
+   l1:
+   mov ecx,OuterCounter
+    mov index_max,ecx
+          l2:
+          MOV EDI , index_max			; EDI = innerloop
+          MOV EDX , ecx            ; ecx=innercounter
+        ;  dec ecx ;innerCounter =Innercounter-1
+         dec EDX
+         SHL EDI,2			; EDI = indexMax *4 
+         SHL EDX,2				    ; ECX = (inLoop-1)*4
+         ADD EDI,ESI					; EDI = offset Array + (indexMax)*4 , EDI = &arr [indexMax]
+         ADD EDX,ESI					; ECX = offset Array + (inLoop-1)*4, ECX= &arr [in-1]
+         MOV EAX,[EDI]				; EAX = arr [indexMax]
+         mov EBX,[EDX]				; EBX = arr [innercounter-1]
+         CMP EAX,EBX ;    arr[indexMax] <arr[innercounter-]
+         jl index_maximum
+         index_maximum:
+         mov ebx   ,ecx
+         mov index_max, ebx
+         loop l2
+     pop ecx
+     ;swap
+     mov EDX ,OuterCounter
+     SHL EDX,2	
+     ADD EDX,ESI            ;edx=&Arr[outercounter]
+     mov EBX,[EDX]
+   ;  MOV EBX,var1
+     MOV [EDI],EBX				; arr[indexMax] = arr[OuterConter]
+     MOV [EDX],EAX				;arr[OuterCounter]=arr[indexMax]
+     LOOP L1
 
-          l1:
-          push ecx
-          mov ebx,0 ;index maxmum
-          ;j=ecx
-          mov edx ,ecx
-          mov ecx ,edx
-                     l2:
-                     pop edx
-                     mov edx,[esi+ebx]
-                     cmp [esi+ecx],edx
-                     jmp none
-                     ;indexmamxmum =j
-                     mov ebx,ecx
-                     push edx
+         
 
 
-                     loop l2
-           none:
-                 push edx
-                 mov edx,0
-                      pop ecx
-                      mov edx,[esi+ebx]
-                     mov x_ptr,edx
-                     mov edx,[esi+ecx]
-                     mov  y_ptr,esi+ecx
-                    jmp function_swap
+         
+         
+         loop l2
+loop l1
 
-            backloop1:
-          loop l1
+
+
  
 
   
@@ -58,13 +78,11 @@ main proc
    
 
 function_swap:
-mov esi, x_ptr
-mov eax,[esi]
-mov edi, y_ptr   
-mov edx,[edi]
-mov [esi],edx
-mov [edi],eax
-jmp backloop1
+mov eax,[x_ptr]
+mov edx,[y_ptr]
+mov [x_ptr],edx
+mov [y_ptr],eax
+;jmp backloop1
 
 
 
@@ -88,12 +106,6 @@ jmp backloop1
 
  
 
- mov edx,4
- mov eax,4
- mov [offset array+4+edx],eax
- call writeint 
- 
- 
 
   
     
