@@ -1,6 +1,5 @@
-
 .386
-include Irvine32.inc
+include irvine32.inc
 .model flat,stdcall
 .stack 4096
 .data
@@ -100,8 +99,8 @@ rev:	mov edx,OFFSET Reverse_ornot_msg		; getting ascending or descending sorting
 		
 		cmp Sort_type,1				; if( Sort_type == 1 )goto Bubble_Sort
 		je Bubble_Sort				
-		cmp Sort_type,2				;if( Sort_type == 2)goto Selection_Sort
-		je Selection_Sort
+	;	cmp Sort_type,2				;if( Sort_type == 2)goto Selection_Sort
+;		je Selection_Sort
 		cmp Sort_type,3				;if(Sort_type == 3)goto Insertion_sort
 		je Insertion_Sort	
 
@@ -160,26 +159,8 @@ next:
 finish:
 
 ; End of loop 1
-
-; Loop for printing array after sorting 
-		LEA EDX,msg1				; lodad the msg1 address in EDX register 
-		call writeString			; print "The Ascending sort of the array is "
-		call crlf				; print empty line
-		LEA ESI,Array				; load start address of Array
-		MOV ECX,Itr
-print:							; loop for each element in array then print it 
-		MOV EAX,[ESI]
-		CALL writeint
-		LEA EDX,comma				; add comma after each element 
-		CALL writeString
-		ADD ESI,4					
-		loop print
-		call crlf
-		call waitmsg				; wait to show the output for user
 		
-		cmp Reverse,0				; if( Reverse == 0 )goto Print
-		je Print				; else goto reverseArr
-		je reverseArr
+ jmp Output
 
 ;**************************
 ;Insertion Sort Algorithm..
@@ -213,17 +194,13 @@ Insertion_Sort:
 	;end insertionSort algorithm section
 	;----------------------------------------------------------------------------------------------------------
 	
-	cmp Reverse,0				; if( Reverse == 0 )goto Print
-	je Print				; else goto reverseArr
-	je reverseArr
-	
 ;**************************
 Output: 
 cmp Reverse , 0               			; Check ascending (Reverse = 0) Or descending (Reverse = 1)
-jz Print                      			; If (reverse = 0) goto Print directly to print the sorted array without reversing (ASSENDING SORT)
+jz printResult                      			; If (reverse = 0) goto Print directly to print the sorted array without reversing (ASSENDING SORT)
 
 
- reverseArr:   					; Reverse the array
+reverseArr:   					; Reverse the array
 ; cacluate arrSize/2 and assign it into ecx:
 mov eax , Itr              			; numerator = Itr (arrSize)
 mov edx , 0     
@@ -252,7 +229,7 @@ loop reversingLoop
 
 
 ; print the array
-Print:
+printResult:
 mov ecx , Itr              			; ecx = arrSize
 mov ebx , offset Array     			; reset the ebx to be equal the address of first element again
    
