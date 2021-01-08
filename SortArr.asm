@@ -1,6 +1,4 @@
 
-.data
-
 .386
 include irvine32.inc
 .model flat,stdcall
