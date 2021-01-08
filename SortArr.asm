@@ -19,7 +19,7 @@ include irvine32.inc ; include labriry
 
 .code ; instruction area 
 main proc
-   
+  
    lea ESI,  array	
    mov eax,4 ;length
    dec eax   
@@ -29,65 +29,62 @@ main proc
     mov index_max,ecx
     mov var2,ecx
     mov ecx,OuterCounter
+    dec OuterCounter
           l2:
           MOV EDI , index_max			; EDI = innerloop
           MOV EDX , ecx            ; ecx=innercounter
         ;  dec ecx ;innerCounter =Innercounter-1
-         dec EDX
+          dec EDX
+         mov InnerCounter,edx 
          SHL EDI,2			; EDI = indexMax *4 
          SHL EDX,2				    ; ECX = (innercounter)*4
          ADD EDI,ESI					; EDI = offset Array + (indexMax)*4 , EDI = &arr [indexMax]
          ADD EDX,ESI					; ECX = offset Array + (innercounter)*4, ECX= &arr [innercounter]
          MOV EAX,[EDI]				; EAX = arr [indexMax]
          mov EBX,[EDX]				; EBX = arr [innercounter] 
-     comment @
-     CMP EBX,EAX ;    arr[indexMax] <arr[innercounter]
-   
-        jb index_maximum
-         index_maximum:
-         mov ebx   ,ecx
-         mov index_max, ebx
-         @
- 
-    cmp EBX,EAX
-    jng  case
-    jmp en
+     
+         CMP EBX,EAX ;    arr[innercounter] > arr[indexMax] 
+         jle mm ;jump if a[indexMax]>arr[innercounter]
 
-    case:
-         mov ebx   ,ecx
-         mov index_max, ebx
+         ; if arr[innercounter] > arr[indexMax]
+         ;indexmaximum =innercounter
+         mov edx,InnerCounter
+         mov index_max,edx
+         mm: 
+       loop l2
 
-    en:
 
-         loop l2
      mov ecx,var2
      ;swap
 
      mov EDX ,OuterCounter
      SHL EDX,2	
      ADD EDX,ESI            ;edx=&Arr[outercounter]
-   
+     ;EDX= Address arr [outerCounter]
+
+     mov EDI,index_max
+     SHL EDI,2
+     ADD EDI,ESI
+
+   ;edi = adress   arr[index_max]
+
      MOV   x_ptr,EDX
      MOV   Y_ptr,EDI
-     mov eax,[x_ptr]
-    mov edx,[y_ptr]
-    mov [x_ptr],edx
-    mov [y_ptr],eax
 
+     
+     ;swap
+        mov esi,x_ptr
+        mov eax,[esi]
+        mov edi,y_ptr
+        mov edx,[edi]
+        mov [esi],edx
+        mov [edi],eax
 
-
-    comment @
-    mov EBX,[EDX]
-   ;  MOV EBX,var1
-     MOV [EDI],EBX				; arr[indexMax] = arr[OuterConter]
-     MOV [EDX],EAX				;arr[OuterCounter]=arr[indexMax]
-  @
- 
-  dec OuterCounter
+  
    LOOP L1
 
          
-
+        
 
          
      
@@ -97,23 +94,8 @@ main proc
  
 
   
- 
-    
 
-
-     
-   
- comment @
-function_swap:
-mov eax,[x_ptr]
-mov edx,[y_ptr]
-mov [x_ptr],edx
-mov [y_ptr],eax
-jmp back
-
-@
-
-
+     @
 
 
 

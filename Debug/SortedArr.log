@@ -1,2 +1,3 @@
 ﻿  Assembling SortArr.asm...
-  SortedArr.vcxproj -> D:\sa\Microprocessors\Sorted-Arr\Debug\SortedArr.exe
+SortArr.asm(84): error A2075: jump destination too far : by 5 byte(s)
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\BuildCustomizations\masm.targets(70,5): error MSB3721: The command "ml.exe /c /nologo /Zi /Fo"Debug\SortArr.obj" /I "C:\Irvine" /W3 /errorReport:prompt  /TaSortArr.asm" exited with code 1.
