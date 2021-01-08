@@ -53,5 +53,8 @@ the program supoorts three ways of sorting (Bubble Sort - Selection Sort - Inser
 
 - External Library:		Irvine32.lib
 
-- Project Referances: playLists, books,  
+- Project Referances: playLists, 
+		Books:  
+		- prentice_the_intel_microprocessors_8th_edition_013 .                                 
+		- Assembly language for Intel-based computers by Kip R. Irvine.
 
