@@ -56,5 +56,6 @@ the program supoorts three ways of sorting (Bubble Sort - Selection Sort - Inser
 - Project Referances: playLists, 
 		Books:  
 		- prentice_the_intel_microprocessors_8th_edition_013 .                                 
-		- Assembly language for Intel-based computers by Kip R. Irvine.
+		- Assembly language for Intel-based computers by Kip R. Irvine.                             
+		- learning git and github https://www.youtube.com/watch?v=ACOiGZoqC8w&list=PLDoPjvoNmBAw4eOj58MZPakHjaO3frVMF.
 
