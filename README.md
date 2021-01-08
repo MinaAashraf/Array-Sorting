@@ -29,7 +29,7 @@ This project is a program takes a set of numbers from user to sort them ascendin
 the desire of the user. firstly the program asks the user to enter the number of elements, then the program
 asks him to enter the values of numbers. then the program asks the user to choose the sorting method because 
 the program supoorts three ways of sorting (Bubble Sort - Selection Sort - Insertion Sort).
-	- Bubble Sort Algorithm
+	- Bubble Sort Algorithm: 
 	
 	![image](https://user-images.githubusercontent.com/76550923/103942137-95500580-5138-11eb-9338-bfe50df77a2e.png)
 	
@@ -43,9 +43,30 @@ the program supoorts three ways of sorting (Bubble Sort - Selection Sort - Inser
 	![image](https://user-images.githubusercontent.com/76550923/103942619-59697000-5139-11eb-9e59-91ffe6db5a8f.png)
 
 
+	- Insertion Sort Algorithm: 
+	
+		In this sorting technique, we pick an element and then insert it in the appropriate 
+		position in ascending or descending order.
 
+		 **EXAMPLE**
+		
+	![1](https://user-images.githubusercontent.com/48108210/104019934-1228c100-51c5-11eb-88bc-af0c4a9e2335.png)
+		
+		In pass 1, element arr[1] is inserted before arr[0], so that arr[0] and arr[1] are sorted.
 
+	![2](https://user-images.githubusercontent.com/48108210/104020179-79467580-51c5-11eb-90e3-84c673ea73b3.png)
+	
+		In pass 2, element arr[2] is inserted before arr[0] or between arr[0] and arr[1] or after arr[1], 
+		so that arr[0], arr[1] and arr[2] are sorted.
 
+	![3](https://user-images.githubusercontent.com/48108210/104020414-dcd0a300-51c5-11eb-9e50-a1af15db08c1.png)
+	
+	![4](https://user-images.githubusercontent.com/48108210/104020591-202b1180-51c6-11eb-86fd-d410ed00bade.png)
+	
+		In a similar way the process is carried out n-1 times.
+
+		**Java Code for the algorithm**
+	![javacode](https://user-images.githubusercontent.com/48108210/104022566-22429f80-51c9-11eb-8917-b7d2a8647cbb.png)
 
 
 
