@@ -1,6 +1,6 @@
 
 .386
-include irvine32.inc
+include Irvine32.inc
 .model flat,stdcall
 .stack 4096
 .data
