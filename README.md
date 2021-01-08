@@ -4,6 +4,11 @@ An Assemby program that takes array of numbers from the user, sorts it with one 
 Bubble Sort, Selection Sort, Insertion Sort (depending on the user desire) and prints the sorted array.
 
 - Project Advantages:
+	- Three types of sorting algorithms.
+	- Choosing the method of sorting is based on the user desire.
+	- The number of values is variable and determined by the user.
+	- Handling for inputs such that the user can only enters intergers.
+	- The numbers can be sorted ascending or descending.
 
 
 - Project Contributers:	
