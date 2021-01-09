@@ -279,56 +279,56 @@ Insertion_Sort:
 	
 oneElementOnly: ; label for skipping Bubble sort if there is only one entered value
 
-;**************************
-Output:         cmp Reverse , 0               	; Check ascending (Reverse = 0) Or descending (Reverse = 1)
-		        jz printResult                  ; If (reverse = 0) goto Print directly to print the sorted array without reversing (ASSENDING SORT)
+;**************************************************************************
+Output:         cmp Reverse , 0                        	; Check ascending (Reverse = 0) Or descending (Reverse = 1)
+		jz printResult                          ; If (reverse = 0) goto Print directly to print the sorted array without reversing (ASSENDING SORT)
 
 
-reverseArr:										; Reverse the array
-				mov eax , Itr              	    ; numerator = Itr (arrSize)
-				mov edx , 0     
-				mov edi , 2                		; denominator = 2
-				div edi                   		; eax = Itr/2 = arrSize/2  (neglect reminder)
-				mov ecx , eax             	 	; ecx = arrSize/2
+reverseArr:						; Reverse the array
+		mov eax , Itr              	        ; numerator = Itr (arrSize)
+		mov edx , 0     
+		mov edi , 2                		; denominator = 2
+		div edi                   		; eax = Itr/2 = arrSize/2  (neglect reminder)
+		mov ecx , eax             	 	; ecx = arrSize/2
 
 
-				; get the addresses of the first element and the last element in arr
-				mov ebx , offset Array     		; ebx =  address of the first element
-				mov eax , 4   
-				mul Itr                    		; eax = Itr * 4
-				sub eax , 4                		; eax = Itr * 4 - 4 = offset of last element relative to the arr
-				add eax , ebx              		; eax = address of last element relative to the segment
+		; get the addresses of the first element and the last element in arr
+		mov ebx , offset Array     		; ebx =  address of the first element
+		mov eax , 4   
+		mul Itr                    		; eax = Itr * 4
+		sub eax , 4                		; eax = Itr * 4 - 4 = offset of last element relative to the arr
+		add eax , ebx              		; eax = address of last element relative to the segment
 
 
-reversingLoop:									; loop through the half of the array              		
-				mov edx , [ebx]        			; edx = element from the first half of the array
-				mov edi , [eax]        			; edi = the corresponding element from the second half  
-				; swap the two elements in the array:
-				mov [ebx],edi          
-				mov [eax],edx
-				add ebx , 4
-				sub eax , 4
-				loop reversingLoop
+reversingLoop:						; loop through the half of the array              		
+		mov edx , [ebx]        			; edx = element from the first half of the array
+		mov edi , [eax]        			; edi = the corresponding element from the second half  
+		; swap the two elements in the array:
+		mov [ebx],edi          
+		mov [eax],edx
+		add ebx , 4
+		sub eax , 4
+		loop reversingLoop
 
 
 		
-printResult:									; print the array 
-				mov ecx , Itr              		; ecx = arrSize
-			    mov ebx , offset Array     		; reset the ebx to be equal the address of first element again
+printResult:						; print the array 
+		mov ecx , Itr              		; ecx = arrSize
+		mov ebx , offset Array     		; reset the ebx to be equal the address of first element again
 
-				mov edx , offset seperatingMsg          
-				call WriteString			    ; display "***************" message 
-				call crlf
-				mov edx , offset outputMsg         
-				call WriteString                ; display "Array elements after sorting" message
-				call crlf
+		mov edx , offset seperatingMsg          
+		call WriteString			; display "***************" message 
+		call crlf
+		mov edx , offset outputMsg         
+		call WriteString                       ; display "Array elements after sorting" message
+		call crlf
 
-				printingLoop:                   ; loop through each element in the array
-				mov eax , [ebx]
-				call Writeint        			; print the content of eax
-				call crlf             			; new line
-				add ebx , 4           			; go to the next element
-				loop printingLoop
+		printingLoop:                           ; loop through each element in the array
+		mov eax , [ebx]
+		call Writeint        			; print the content of eax
+		call crlf             			; new line
+		add ebx , 4           			; go to the next element
+		loop printingLoop
 ;****************************************************************************
 
 invoke ExitProcess,0
