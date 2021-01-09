@@ -26,11 +26,11 @@ msg1    	BYTE "The Ascending sort of the array is ",0
 
 
 ; selection sort algorithm data
-x_ptr DWORD 0
-y_ptr DWORD 0
-index_max DWORD ?
-InnerCounter Dword ?
-OuterCounter Dword ?
+x_ptr 		DWORD 0
+y_ptr 		DWORD 0
+index_max 	DWORD ?
+InnerCounter 	DWORD ?
+OuterCounter 	DWORD ?
 
 ; Insertion Algorithm data ************************************************
 temp  dd ?
