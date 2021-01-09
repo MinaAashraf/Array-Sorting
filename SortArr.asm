@@ -16,6 +16,7 @@ Array		dword 100009 dup (0)
 Itr		dword ?
 Sort_type	dword ?
 Reverse     	dword ?
+Var		dword ?
 
 ; Bubble Sort algorithm data  *****************************************************
 outLoop	 	DWORD ? ; counter for the outer loop
@@ -60,12 +61,14 @@ Input:   	mov   edx,OFFSET Input_msg		; input loop
 		call  WriteString
 		call  Crlf
 		call  ReadInt				; input integer into EAX
+		mov Var,Eax
 		pushf								
 		pop Eax
 		mov Ebx,2048				; to check if valid int input
 		and Ebx,Eax
 		cmp Ebx,0
 		jne Input
+		mov Eax,Var
 		stosd					; storing data in memory
    		Loop  Input				; repeat the loop
 
