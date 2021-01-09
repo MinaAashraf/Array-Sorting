@@ -16,7 +16,7 @@ Bubble Sort, Selection Sort, Insertion Sort (depending on the user desire) and p
 	-	1- Mostafa Mahmoud //				Handling Input validation and representation //  	Input			
 	-	2- Mohamed Ali //					Creating Bubble sort algorithm //				Bubble_Sort
 	-	4- Mohamed Hany	//				Creating Insertion Sort algorithm //			Insertion_Sort //
-	-	5- Mahmoud Abdelwahab //				Creating Selection sort algorithm //			election_Sort //
+	-	5- Mahmoud mohamed  Abdelwahab //				Creating Selection sort algorithm //			election_Sort //
 	-	5- Mina Ashraf //					Handling  output after Sorting // 				Master //
 
 	
@@ -79,7 +79,12 @@ the program supoorts three ways of sorting (Bubble Sort - Selection Sort - Inser
 	   
 	    **Java Code for the algorithm**
 	    
-           ![2](https://user-images.githubusercontent.com/47304558/104108957-ba2bb080-52d1-11eb-93a3-4a20dbdfc2ab.png)
+	    
+	    
+          ![code](https://user-images.githubusercontent.com/47304558/104109350-9e2a0e00-52d5-11eb-9926-911f4d78ad42.jpg)
+
+	   
+	   
 	   
 	    
 	    The selection sort improves on the bubble sort by reducing  the number of swaps necessary from O(N2 ) to O(N)
