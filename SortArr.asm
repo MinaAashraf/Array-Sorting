@@ -1,7 +1,7 @@
 .386
-include irvine32.inc 
+include irvine32.inc ; include labriry
 
-.data 
+.data ; data area // memory area
  array DWORD 16,2,1,-1,50,-20,22,-10,4
  msg BYTE "enter two variables ?",0 
 
@@ -35,22 +35,23 @@ main proc
                                 l2: cmp InnerCounter,0
                                     jl exit1
                                      lea ESI,  array	
-                                     MOV EDI , index_max	
-                                     MOV EDX , InnerCounter         
-                                     SHL EDI,2			
-                                     SHL EDX,2				   
-                                     ADD EDI,ESI					
-                                     ADD EDX,ESI					
-                                     MOV EAX,[EDI]				
-                                     mov EBX,[EDX]				
-                                     CMP EBX,EAX 
-                                     jle mm 
+                                     MOV EDI , index_max	    ; EDI = indexCounter
+                                     MOV EDX , InnerCounter     ;edx=innerCounter        
+                                     SHL EDI,2			        ; EDI = indexMax *4 
+                                     SHL EDX,2				    ; ECX = (innercounter)*4
+                                     ADD EDI,ESI			    ; EDI = offset Array + (indexMax)*4 , EDI = &arr [indexMax]
+                                     ADD EDX,ESI				; EDX = offset Array + (innercounter)*4, EDX= &arr [innercounter]
+                                     MOV EAX,[EDI]				; EAX = arr [indexMax]
+                                     mov EBX,[EDX]				; EBX = arr [innercounter] 
+                                     CMP EBX,EAX ;    arr[innercounter] > arr[indexMax] 
+                                     jle mm ;jump if a[indexMax]>arr[innercounter]
 
-                                     
-                                     
+                                     ; if arr[innercounter] > arr[indexMax]
+                                     ;indexmaximum =innercounter
                                      mov edx,InnerCounter
                                      mov index_max,edx
                                      mm: 
+
 
                                     dec InnerCounter
                                     jmp l2
@@ -58,12 +59,12 @@ main proc
      mov EDX ,OuterCounter
      SHL EDX,2	
      ADD EDX,ESI           
-   
+   ;EDX= Address arr [outerCounter]
 
      mov EDI,index_max
      SHL EDI,2
      ADD EDI,ESI
-
+     ;EDX= Address arr [index_max]
    
 
      MOV   x_ptr,EDX
@@ -100,7 +101,7 @@ main proc
 
  
 
-
+  ;print array
  mov esi, offset array 
  mov ecx,9
  again2:
