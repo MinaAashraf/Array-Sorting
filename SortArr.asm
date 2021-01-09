@@ -35,6 +35,10 @@ msg1    	BYTE "The Ascending sort of the array is ",0
 ; Insertion Algorithm data ************************************************
 temp  dd ?
 
+; output data
+seperatingMsg  BYTE "**************************************************************************",0
+outputMsg      BYTE "Array elements after sortig:",0
+
 .code
 
 main proc
@@ -316,10 +320,17 @@ loop reversingLoop
 printResult:
 mov ecx , Itr              			; ecx = arrSize
 mov ebx , offset Array     			; reset the ebx to be equal the address of first element again
-   
+
+mov edx , offset seperatingMsg          
+call WriteString           ; display "***************" message 
+call crlf
+mov edx , offset outputMsg         
+call WriteString                    ; display "Array elements after sorting" message
+call crlf
+
 printingLoop:                     		; loop through each element in the array
 mov eax , [ebx]
-call writeint         				; print the content of eax
+call Writeint        				; print the content of eax
 call crlf             				; new line
 add ebx , 4           				; go to the next element
 loop printingLoop
