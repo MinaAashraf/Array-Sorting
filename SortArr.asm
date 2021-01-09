@@ -2,7 +2,7 @@
 include irvine32.inc 
 
 .data 
- array DWORD 16,2,1,-1,50 
+ array DWORD 16,2,1,-1,50,-20,22,-10,4
  msg BYTE "enter two variables ?",0 
 
  
@@ -19,7 +19,7 @@ main proc
 
       lea ESI,  array	
  
-     mov OuterCounter,5
+     mov OuterCounter,9
     
   
   
@@ -102,7 +102,7 @@ main proc
 
 
  mov esi, offset array 
- mov ecx,5 
+ mov ecx,9
  again2:
  mov eax,[esi]
  add esi,4
