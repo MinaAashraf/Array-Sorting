@@ -67,6 +67,26 @@ the program supoorts three ways of sorting (Bubble Sort - Selection Sort - Inser
 
 		**Java Code for the algorithm**
 	![javacode](https://user-images.githubusercontent.com/48108210/104022566-22429f80-51c9-11eb-8917-b7d2a8647cbb.png)
+	
+	 - Selection Sort Algorithm: 
+	 
+	   sorts an array by repeatedly finding the maxmimum element (considering ascending order) 
+	   from unsorted part and putting it at the ending .
+	   
+	   **EXAMPLE**
+	   
+	   ![1](https://user-images.githubusercontent.com/47304558/104108466-7fc01480-52cd-11eb-9a38-d81ca8e23187.jpg)
+	   
+	    **Java Code for the algorithm**
+	    
+           ![code](https://user-images.githubusercontent.com/47304558/104108785-26a5b000-52d0-11eb-992f-e62d7fa021e6.png)
+	    
+	    The selection sort improves on the bubble sort by reducing  the number of swaps necessary from O(N2 ) to O(N)
+	    
+	    Time Complexity: O(n2) as there are two nested loops.
+
+
+
 
 
 
