@@ -79,13 +79,14 @@ the program supoorts three ways of sorting (Bubble Sort - Selection Sort - Inser
 	   
 	    **Java Code for the algorithm**
 	    
-           ![code](https://user-images.githubusercontent.com/47304558/104108785-26a5b000-52d0-11eb-992f-e62d7fa021e6.png)
+           ![2](https://user-images.githubusercontent.com/47304558/104108957-ba2bb080-52d1-11eb-93a3-4a20dbdfc2ab.png)
+	   
 	    
 	    The selection sort improves on the bubble sort by reducing  the number of swaps necessary from O(N2 ) to O(N)
 	    
 	    Time Complexity: O(n2) as there are two nested loops.
 
-
+            
 
 
 
