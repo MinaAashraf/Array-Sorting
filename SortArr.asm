@@ -52,7 +52,7 @@ num:								; displaying number of inputs message
 		mov Itr,Eax					; Itr = Eax
 		pushf						; pushing the flag register in stack			
 		pop Eax						; Eax = EFLAG
-		mov Ebx,2048					; to check if valid int input
+		mov Ebx,2049					; to check if valid int input
 		and Ebx,Eax					; ebx &= eax
 		cmp Ebx,0					; if ( unvalid input) goto num	
 		jne num
@@ -74,7 +74,7 @@ Input:								; input loop
 		mov Var,Eax
 		pushf								
 		pop Eax
-		mov Ebx,2048					; to check if valid int input
+		mov Ebx,2049					; to check if valid int input
 		and Ebx,Eax
 		cmp Ebx,0
 		jne Input
@@ -103,6 +103,14 @@ rev:								; getting ascending or descending sorting type
 		call WriteString
 		call Crlf
 		call ReadInt
+		mov Var,Eax
+		pushf								
+		pop Eax
+		mov Ebx,2049					; to check if valid int input
+		and Ebx,Eax					; and to check for blank input	
+		cmp Ebx,0
+		jne Input
+		mov Eax,Var
 		mov Ebx,1					; making sure that the input is 0 or 1
 		cmp Eax,Ebx					; if ( eax > ebx ) goto rev
 		jg rev
