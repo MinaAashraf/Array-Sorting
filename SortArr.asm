@@ -1,11 +1,6 @@
-.386
-include irvine32.inc ; include labriry
 
 .data ; data area // memory area
 
-
-
- 
   x_ptr DWORD 0
   y_ptr DWORD 0
   index_max DWORD ?
@@ -15,13 +10,10 @@ include irvine32.inc ; include labriry
 
 .code ; instruction area 
 main proc
-
-      lea ESI,  array	
- 
-     mov OuterCounter,9
-    
-  
-  
+      
+  lea ESI,  array 
+  mov eax,Itr
+  mov OuterCounter,eax
          l1: cmp OuterCounter,0
           jle xx
           dec OuterCounter
@@ -116,7 +108,4 @@ main proc
 
 
 
-    invoke ExitProcess,0
    
-main endp
-end main
