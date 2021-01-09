@@ -6,11 +6,11 @@ include irvine32.inc
 
 ; Inputs Data ***************************************************************
 
-Num_msg			BYTE "Enter positive that is the number of numbers you want to insert: ",0
+Num_msg			BYTE "Enter the number of values you want to insert: ",0
 Input_msg		BYTE "Enter a 32-bit signed integer: ",0
 Output_msg		BYTE "The Numbers You Inserted are: ",0
-Sort_type_msg		BYTE "Enter 1 for Bubble sort 2 for Selection sort 3 for Insertion sort: ",0
-Reverse_ornot_msg	BYTE "Enter 0 for Ascending sorting and 1 for descending sorting",0
+Sort_type_msg		BYTE "Enter 1 for Bubble sort, 2 for Selection sort, 3 for Insertion sort: ",0
+Reverse_ornot_msg	BYTE "Enter 0 for Ascending sorting or 1 for descending sorting",0
 	
 Array		dword 100009 dup (0)
 Itr		dword ?
@@ -113,6 +113,8 @@ rev:	mov edx,OFFSET Reverse_ornot_msg		; getting ascending or descending sorting
 Bubble_Sort:
 		lea ESI, Array				; Load ESI with beggining address of the Array
 		MOV EAX, Itr				; get the lenght (n) of array
+		CMP Itr, 1
+		JE oneElementOnly			; if there is only one element in the array skip the bubble sort
 		dec eax					; eax = Itr-1 
 		mov outLoop , eax			; outloop = Itr-1
 		mov inLoop,0 
@@ -197,6 +199,7 @@ Insertion_Sort:
 	;end insertionSort algorithm section
 	;----------------------------------------------------------------------------------------------------------
 	
+oneElementOnly: ; label for skipping Bubble sort if there is only one entered value
 ;**************************
 Output: 
 cmp Reverse , 0               			; Check ascending (Reverse = 0) Or descending (Reverse = 1)
