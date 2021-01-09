@@ -2,14 +2,13 @@
 include irvine32.inc ; include labriry
 
 .data ; data area // memory area
- array DWORD 16,2,1,-1,50,-20,22,-10,4
- msg BYTE "enter two variables ?",0 
+
+
 
  
   x_ptr DWORD 0
   y_ptr DWORD 0
   index_max DWORD ?
-  var2 DWORD ?
   InnerCounter Dword ?
   OuterCounter Dword ?
 
@@ -66,7 +65,7 @@ main proc
      ADD EDI,ESI
      ;EDX= Address arr [index_max]
    
-
+   
      MOV   x_ptr,EDX
      MOV   Y_ptr,EDI
 
@@ -100,16 +99,6 @@ main proc
 
 
  
-
-  ;print array
- mov esi, offset array 
- mov ecx,9
- again2:
- mov eax,[esi]
- add esi,4
- call writeint 
- call crlf
- loop again2
 
 
 
