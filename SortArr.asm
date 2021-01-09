@@ -174,110 +174,104 @@ next:
 		mov inLoop,0				; initialize the inLoop counter to start from zero 
 		pop ECX					; retrieve (ECX = outLoop) counter of outer loop from the stack
 		cmp ECX,1				; outer loop finishes when ECX=1
-		jbe finish 
-		loop l1
-finish:
-
-; End of loop 1
-		
- jmp Output
-
- ;******************************
-  Selection_Sort: 
-  lea ESI,  array 
-  mov eax,Itr
-  mov OuterCounter,eax
-         outerloop: cmp OuterCounter,0
-          jle xx
-          dec OuterCounter
-          mov eax,OuterCounter
-          mov index_max,eax
-          dec eax
-          mov InnerCounter,eax
-         lea ESI,  array	
-
-                                innerloop: cmp InnerCounter,0
-                                    jl exit1
-                                     lea ESI,  array	
-                                     MOV EDI , index_max	    ; EDI = indexCounter
-                                     MOV EDX , InnerCounter     ;edx=innerCounter        
-                                     SHL EDI,2			        ; EDI = indexMax *4 
-                                     SHL EDX,2				    ; ECX = (innercounter)*4
-                                     ADD EDI,ESI			    ; EDI = offset Array + (indexMax)*4 , EDI = &arr [indexMax]
-                                     ADD EDX,ESI				; EDX = offset Array + (innercounter)*4, EDX= &arr [innercounter]
-                                     MOV EAX,[EDI]				; EAX = arr [indexMax]
-                                     mov EBX,[EDX]				; EBX = arr [innercounter] 
-                                     CMP EBX,EAX ;    arr[innercounter] > arr[indexMax] 
-                                     jle mm ;jump if a[indexMax]>arr[innercounter]
-
-                                     ; if arr[innercounter] > arr[indexMax]
-                                     ;indexmaximum =innercounter
-                                     mov edx,InnerCounter
-                                     mov index_max,edx
-                                     mm: 
-
-
-                                    dec InnerCounter
-                                    jmp innerloop
-                                    exit1:
-     mov EDX ,OuterCounter
-     SHL EDX,2	
-     ADD EDX,ESI           
-   ;EDX= Address arr [outerCounter]
-
-     mov EDI,index_max
-     SHL EDI,2
-     ADD EDI,ESI
-     ;EDX= Address arr [index_max]
-   
-   
-     MOV   x_ptr,EDX
-     MOV   Y_ptr,EDI
-
-     
-    
-        mov esi,x_ptr
-        mov eax,[esi]
-        mov edi,y_ptr
-        mov edx,[edi]
-        mov [esi],edx
-        mov [edi],eax
-
- 
- jmp outerloop
- xx:
-
- jmp Output
-
+		jbe finish                                          
+		loop l1                                                  
+finish:                                                                   
+                                                                            
+; End of loop 1                                                        
+		                                                      
+ jmp Output                                                                       
+                                                                                   
+ ;******************************                                                         
+ Selection_Sort:                                                                                     
+  		lea ESI,  array                                                  
+  		mov eax,Itr                                                      
+  		mov OuterCounter,eax                                                 
+ outerloop: 	cmp OuterCounter,0                                                   
+          	jle xx                                                             
+          	dec OuterCounter                                                 
+          	mov eax,OuterCounter                                                      
+          	mov index_max,eax                                                                        
+          	dec eax                                                                       
+          	mov InnerCounter,eax                                                                 
+         	lea ESI,Array	                                                  
+                                                                                    
+  innerloop: 	cmp InnerCounter,0                                                                                   
+                jl exit1                                                                           
+                lea ESI,Array	                                                          
+                MOV EDI,index_max	    		; EDI = indexCounter
+                MOV EDX,InnerCounter     		;edx=innerCounter        
+                SHL EDI,2			        ; EDI = indexMax *4 
+                SHL EDX,2				; ECX = (innercounter)*4
+                ADD EDI,ESI			    	; EDI = offset Array + (indexMax)*4 , EDI = &arr [indexMax]
+                ADD EDX,ESI				; EDX = offset Array + (innercounter)*4, EDX= &arr [innercounter]
+                MOV EAX,[EDI]				; EAX = arr [indexMax]
+                mov EBX,[EDX]				; EBX = arr [innercounter] 
+                CMP EBX,EAX 				; arr[innercounter] > arr[indexMax] 
+                jle mm 					; jump if a[indexMax]>arr[innercounter]
+                                                                                                                    
+                ; if arr[innercounter] > arr[indexMax]                                                          
+                ;indexmaximum =innercounter                                                          
+                mov edx,InnerCounter                                                          
+                mov index_max,edx                                                          
+mm:                                                                                                                        
+	        dec InnerCounter                                                          
+                jmp innerloop                                                          
+exit1:                                                                                                                    
+ 	    	mov EDX ,OuterCounter                                                          
+     		SHL EDX,2	                                                          
+     		ADD EDX,ESI                                                                     
+                                                                                                                    
+;EDX= Address arr [outerCounter]                                                          
+     		mov EDI,index_max                                                          
+     		SHL EDI,2                                                          
+     		ADD EDI,ESI                                                          
+                                                                                                                    
+;EDX= Address arr [index_max]                                                          
+	     	MOV   x_ptr,EDX                                                          
+     		MOV   Y_ptr,EDI                                                          
+                                                                                                                    
+        	mov esi,x_ptr                                                          
+        	mov eax,[esi]                                                          
+        	mov edi,y_ptr                                                          
+        	mov edx,[edi]                                                          
+        	mov [esi],edx                                                          
+        	mov [edi],eax                                                          
+		                                                                                                                    
+ 		jmp outerloop                                                                                                                    
+ xx:                                                                                                                    
+                                                                                                                    
+ 		jmp Output                                                          
+                                                                                                                    
 ;**************************
-;Insertion Sort Algorithm..
-Insertion_Sort:
-	mov  ecx, 0						;clear ecx register
-	mov  ecx, 1						;ecx = 1 (outer loop counter, starts from 1) (i=1)
-	loop1:
-		cmp  ecx, Itr					;the outer loop condition
+;Insertion Sort Algorithm..                                                          
+Insertion_Sort:                                                               
+		mov  ecx, 0				;clear ecx register
+		mov  ecx, 1				;ecx = 1 (outer loop counter, starts from 1) (i=1)
+loop1:
+		cmp  ecx, Itr				;the outer loop condition
 		jge  exitLoop1
-		mov  edx, Array[4*ecx]				;edx = Array[i]
-		mov  temp, edx					;storing the element (i) into the temporary variable, temp
-		push ecx					;saving the outer loop counter
-		loop2:
-			cmp  ecx, 0				;inner loop first condition (i<Itr)
-			jle  exitLoop2
-			cmp  edx, Array[4*ecx-4]		;inner loop second condition (temp<Array[j-1])
-			jg   exitLoop2
-			mov  esi, 0				;clear edx
-			mov  esi, Array[4*ecx-4]		;edx = Array[j-1]
-			mov  Array[4*ecx], esi			;Array[j] = edx
-			dec  ecx				;ecx-- (j--)
-			jmp  Loop2
-		exitLoop2:
-		mov  edx, 0					;clear edx
-		mov  edx, temp					;edx = temp
-		mov  Array[4*ecx], edx				;Array[j] = edx
-		pop  ecx					;restore the outer loop counter
-		inc  ecx					;ecx++ (i++)
+		mov  edx, Array[4*ecx]			;edx = Array[i]
+		mov  temp, edx				;storing the element (i) into the temporary variable, temp
+		push ecx				;saving the outer loop counter
+loop2:		cmp  ecx, 0				;inner loop first condition (i<Itr)
+		jle  exitLoop2
+		cmp  edx, Array[4*ecx-4]		;inner loop second condition (temp<Array[j-1])
+		jg   exitLoop2
+		mov  esi, 0				;clear edx
+		mov  esi, Array[4*ecx-4]		;edx = Array[j-1]
+		mov  Array[4*ecx], esi			;Array[j] = edx
+		dec  ecx				;ecx-- (j--)
+		jmp  Loop2
+exitLoop2:
+		mov  edx, 0				;clear edx
+		mov  edx, temp				;edx = temp
+		mov  Array[4*ecx], edx			;Array[j] = edx
+		pop  ecx				;restore the outer loop counter
+		inc  ecx				;ecx++ (i++)
 		jmp  Loop1
-	exitLoop1:
+exitLoop1:
+
 	;end insertionSort algorithm section
 	;----------------------------------------------------------------------------------------------------------
 	
