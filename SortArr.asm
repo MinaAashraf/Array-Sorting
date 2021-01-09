@@ -1,13 +1,10 @@
 .386
-include irvine32.inc ; include labriry
+include irvine32.inc 
 
-.data ; data area // memory area
-            ;0  4 8 12
- array DWORD 16,2,5,1 ; intial array length 3
- msg BYTE "enter two variables ?",0 ; message  to user 
- ;shap output string 
-  
-  ;intial variable 
+.data 
+ array DWORD 16,2,1,-1,50 
+ msg BYTE "enter two variables ?",0 
+
  
   x_ptr DWORD 0
   y_ptr DWORD 0
@@ -19,60 +16,61 @@ include irvine32.inc ; include labriry
 
 .code ; instruction area 
 main proc
+
+      lea ESI,  array	
+ 
+     mov OuterCounter,5
+    
   
-   lea ESI,  array	
-   mov eax,4 ;length
-   dec eax   
-   mov OuterCounter,eax
-   mov ecx,OuterCounter
-   l1:
-    mov index_max,ecx
-    mov var2,ecx
-    mov ecx,OuterCounter
-    dec OuterCounter
-          l2:
-          MOV EDI , index_max			; EDI = innerloop
-          MOV EDX , ecx            ; ecx=innercounter
-        ;  dec ecx ;innerCounter =Innercounter-1
-          dec EDX
-         mov InnerCounter,edx 
-         SHL EDI,2			; EDI = indexMax *4 
-         SHL EDX,2				    ; ECX = (innercounter)*4
-         ADD EDI,ESI					; EDI = offset Array + (indexMax)*4 , EDI = &arr [indexMax]
-         ADD EDX,ESI					; ECX = offset Array + (innercounter)*4, ECX= &arr [innercounter]
-         MOV EAX,[EDI]				; EAX = arr [indexMax]
-         mov EBX,[EDX]				; EBX = arr [innercounter] 
-     
-         CMP EBX,EAX ;    arr[innercounter] > arr[indexMax] 
-         jle mm ;jump if a[indexMax]>arr[innercounter]
+  
+         l1: cmp OuterCounter,0
+          jle xx
+          dec OuterCounter
+          mov eax,OuterCounter
+          mov index_max,eax
+          dec eax
+          mov InnerCounter,eax
+         lea ESI,  array	
 
-         ; if arr[innercounter] > arr[indexMax]
-         ;indexmaximum =innercounter
-         mov edx,InnerCounter
-         mov index_max,edx
-         mm: 
-       loop l2
+                                l2: cmp InnerCounter,0
+                                    jl exit1
+                                     lea ESI,  array	
+                                     MOV EDI , index_max	
+                                     MOV EDX , InnerCounter         
+                                     SHL EDI,2			
+                                     SHL EDX,2				   
+                                     ADD EDI,ESI					
+                                     ADD EDX,ESI					
+                                     MOV EAX,[EDI]				
+                                     mov EBX,[EDX]				
+                                     CMP EBX,EAX 
+                                     jle mm 
 
+                                     
+                                     
+                                     mov edx,InnerCounter
+                                     mov index_max,edx
+                                     mm: 
 
-     mov ecx,var2
-     ;swap
-
+                                    dec InnerCounter
+                                    jmp l2
+                                    exit1:
      mov EDX ,OuterCounter
      SHL EDX,2	
-     ADD EDX,ESI            ;edx=&Arr[outercounter]
-     ;EDX= Address arr [outerCounter]
+     ADD EDX,ESI           
+   
 
      mov EDI,index_max
      SHL EDI,2
      ADD EDI,ESI
 
-   ;edi = adress   arr[index_max]
+   
 
      MOV   x_ptr,EDX
      MOV   Y_ptr,EDI
 
      
-     ;swap
+    
         mov esi,x_ptr
         mov eax,[esi]
         mov edi,y_ptr
@@ -80,10 +78,9 @@ main proc
         mov [esi],edx
         mov [edi],eax
 
-  
-   LOOP L1
-
-         
+ 
+ jmp l1
+ xx:
         
 
          
@@ -95,7 +92,7 @@ main proc
 
   
 
-     @
+     
 
 
 
@@ -103,9 +100,9 @@ main proc
 
  
 
- ;print array
+
  mov esi, offset array 
- mov ecx,4
+ mov ecx,5 
  again2:
  mov eax,[esi]
  add esi,4
@@ -113,9 +110,6 @@ main proc
  call crlf
  loop again2
 
-
-
- 
 
 
   
