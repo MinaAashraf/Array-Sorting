@@ -6,7 +6,7 @@ include irvine32.inc
 
 ; Inputs Data ***************************************************************
 
-Num_msg			BYTE "Enter the number of numbers you want to insert: ",0
+Num_msg			BYTE "Enter positive that is the number of numbers you want to insert: ",0
 Input_msg		BYTE "Enter a 32-bit signed integer: ",0
 Output_msg		BYTE "The Numbers You Inserted are: ",0
 Sort_type_msg		BYTE "Enter 1 for Bubble sort 2 for Selection sort 3 for Insertion sort: ",0
@@ -24,6 +24,13 @@ inLoop  	DWORD ? ; counter for the inner loop
 comma   	BYTE ", ",0 
 msg1    	BYTE "The Ascending sort of the array is ",0 
 
+
+; selection sort algorithm data
+ x_ptr DWORD 0
+  y_ptr DWORD 0
+  index_max DWORD ?
+  InnerCounter Dword ?
+  OuterCounter Dword ?
 
 ; Insertion Algorithm data ************************************************
 temp  dd ?
@@ -102,8 +109,8 @@ rev:	mov edx,OFFSET Reverse_ornot_msg		; getting ascending or descending sorting
 		
 		cmp Sort_type,1				; if( Sort_type == 1 )goto Bubble_Sort
 		je Bubble_Sort				
-	;	cmp Sort_type,2				;if( Sort_type == 2)goto Selection_Sort
-;		je Selection_Sort
+		cmp Sort_type,2				;if( Sort_type == 2)goto Selection_Sort
+		je Selection_Sort
 		cmp Sort_type,3				;if(Sort_type == 3)goto Insertion_sort
 		je Insertion_Sort	
 
@@ -164,6 +171,80 @@ finish:
 ; End of loop 1
 		
  jmp Output
+
+ ;******************************
+  Selection_Sort: 
+  lea ESI,  array 
+  mov eax,Itr
+  mov OuterCounter,eax
+         outerloop: cmp OuterCounter,0
+          jle xx
+          dec OuterCounter
+          mov eax,OuterCounter
+          mov index_max,eax
+          dec eax
+          mov InnerCounter,eax
+         lea ESI,  array	
+
+                                innerloop: cmp InnerCounter,0
+                                    jl exit1
+                                     lea ESI,  array	
+                                     MOV EDI , index_max	    ; EDI = indexCounter
+                                     MOV EDX , InnerCounter     ;edx=innerCounter        
+                                     SHL EDI,2			        ; EDI = indexMax *4 
+                                     SHL EDX,2				    ; ECX = (innercounter)*4
+                                     ADD EDI,ESI			    ; EDI = offset Array + (indexMax)*4 , EDI = &arr [indexMax]
+                                     ADD EDX,ESI				; EDX = offset Array + (innercounter)*4, EDX= &arr [innercounter]
+                                     MOV EAX,[EDI]				; EAX = arr [indexMax]
+                                     mov EBX,[EDX]				; EBX = arr [innercounter] 
+                                     CMP EBX,EAX ;    arr[innercounter] > arr[indexMax] 
+                                     jle mm ;jump if a[indexMax]>arr[innercounter]
+
+                                     ; if arr[innercounter] > arr[indexMax]
+                                     ;indexmaximum =innercounter
+                                     mov edx,InnerCounter
+                                     mov index_max,edx
+                                     mm: 
+
+
+                                    dec InnerCounter
+                                    jmp innerloop
+                                    exit1:
+     mov EDX ,OuterCounter
+     SHL EDX,2	
+     ADD EDX,ESI           
+   ;EDX= Address arr [outerCounter]
+
+     mov EDI,index_max
+     SHL EDI,2
+     ADD EDI,ESI
+     ;EDX= Address arr [index_max]
+   
+   
+     MOV   x_ptr,EDX
+     MOV   Y_ptr,EDI
+
+     
+    
+        mov esi,x_ptr
+        mov eax,[esi]
+        mov edi,y_ptr
+        mov edx,[edi]
+        mov [esi],edx
+        mov [edi],eax
+
+ 
+ jmp outerloop
+ xx:
+
+ jmp Output
+
+
+
+
+
+
+
 
 ;**************************
 ;Insertion Sort Algorithm..

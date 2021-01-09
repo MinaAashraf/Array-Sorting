@@ -2,6 +2,7 @@ C:\Users\ashra\source\repos\SortedArr\Debug\SortedArr.exe
 C:\Users\ashra\source\repos\SortedArr\Debug\SortedArr.pdb
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
 =======
@@ -13,3 +14,7 @@ D:\المحاضرات\تالته حاسبات\Micropocessors\Micro - project\Min
 E:\Academic Stuff\My College\3rd Computer Systems Engineering\1st Term\Microprocessor\Project\Project Repository on Github\Sorted-Arr\Debug\SortedArr.exe
 E:\Academic Stuff\My College\3rd Computer Systems Engineering\1st Term\Microprocessor\Project\Project Repository on Github\Sorted-Arr\Debug\SortedArr.pdb
 >>>>>>> 21272e727fe184a6188779375fcb6c85a2ee5c00
+=======
+D:\sa\Microprocessors\Sorted-Arr\Debug\SortedArr.exe
+D:\sa\Microprocessors\Sorted-Arr\Debug\SortedArr.pdb
+>>>>>>> 5429b78a58428b8a3b5ce568ae9a7e6346664c30
