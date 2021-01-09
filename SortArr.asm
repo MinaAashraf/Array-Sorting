@@ -6,7 +6,7 @@ include irvine32.inc
 
 ; Inputs Data ***************************************************************
 
-Num_msg			BYTE "Enter a positive number for the values you want to insert: ",0
+Num_msg			BYTE "Enter a positive number of the values you want to insert: ",0
 Input_msg		BYTE "Enter a 32-bit signed integer: ",0
 Output_msg		BYTE "The Numbers You Inserted are: ",0
 Sort_type_msg		BYTE "Enter 1 for Bubble sort, 2 for Selection sort, 3 for Insertion sort: ",0
