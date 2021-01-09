@@ -83,6 +83,10 @@ Input:   	mov   edx,OFFSET Input_msg		; input loop
 		stosd					; storing data in memory
    		Loop  Input				; repeat the loop
 
+		cmp Itr,1				; if( Itr == 1 )goto printResult
+		je printResult
+
+
 ; getting the Sorting type from the user
 sort:	 	mov edx,OFFSET Sort_type_msg		; getting sotring type
 		call WriteString
