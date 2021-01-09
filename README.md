@@ -90,6 +90,10 @@ the program supoorts three ways of sorting (Bubble Sort - Selection Sort - Inser
 	    The selection sort improves on the bubble sort by reducing  the number of swaps necessary from O(N2 ) to O(N)
 	    
 	    Time Complexity: O(n2) as there are two nested loops.
+	    
+	    **Normal Inputs**
+	    
+	    ![normal inputs](https://user-images.githubusercontent.com/47304558/104109653-d848df00-52d8-11eb-9abd-93519ae91870.jpg)
 
             
 
