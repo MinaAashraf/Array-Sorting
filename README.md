@@ -29,7 +29,7 @@ This project is a program takes a set of numbers from user to sort them ascendin
 the desire of the user. firstly the program asks the user to enter the number of elements, then the program
 asks him to enter the values of numbers. then the program asks the user to choose the sorting method because 
 the program supoorts three ways of sorting (Bubble Sort - Selection Sort - Insertion Sort).
-	- Bubble Sort Algorithm: 
+	- Bubble Sort Algorithm:  it works by repeatedly swapping the adjacent elements if they are in wrong order
 	
 	![image](https://user-images.githubusercontent.com/76550923/103942137-95500580-5138-11eb-9338-bfe50df77a2e.png)
 	
@@ -41,7 +41,13 @@ the program supoorts three ways of sorting (Bubble Sort - Selection Sort - Inser
 	![image](https://user-images.githubusercontent.com/76550923/103942592-50789e80-5139-11eb-99c6-74233562056c.png)
 	
 	![image](https://user-images.githubusercontent.com/76550923/103942619-59697000-5139-11eb-9e59-91ffe6db5a8f.png)
-
+	
+	
+	**Java Code for the Bubble Sort algorithm**
+	
+	
+	
+		
 
 	- Insertion Sort Algorithm: 
 	
