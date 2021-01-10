@@ -116,4 +116,9 @@ the program supoorts three ways of sorting (Bubble Sort - Selection Sort - Inser
 		- prentice_the_intel_microprocessors_8th_edition_013 .                                 
 		- Assembly language for Intel-based computers by Kip R. Irvine.                             
 		- learning git and github https://www.youtube.com/watch?v=ACOiGZoqC8w&list=PLDoPjvoNmBAw4eOj58MZPakHjaO3frVMF.
+# Issues:
+- Irvine32 library handles input using function called ReadInt and in this function he takes the input as string then calls for another function called ParseInteger32
+in this function he takes each digit as token so he takes the longest decimal number possible from the string and if the length of input string is 0 he assigns the EAX register with 0 .
 
+- So if the user presses Enter in an input that accepts 0 as input i'm forced to take it as valid input .
+- When the input is partially valid as the number has character in it Irvine gives me the longest valid number as prevously stated and again i'm forced to take the input as valid input .
