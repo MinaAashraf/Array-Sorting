@@ -33,7 +33,7 @@ temp			dd	?
 ;*****************************************************************
 ; output data
 seperatingMsg		BYTE  	"**************************************************************************",0
-outputMsg		BYTE  	"The entered values after sortig:",0
+outputMsg		BYTE  	"The entered values after sorting:",0
 ;*****************************************************************
 ; Code section 
 .code
@@ -316,8 +316,6 @@ reversingLoop:							; loop through the half of the array
 		add ebx , 4
 		sub eax , 4
 		loop reversingLoop
-
-
 		
 printResult:							; print the array 
 		mov ecx , Itr              			; ecx = arrSize
@@ -336,6 +334,7 @@ printResult:							; print the array
 		call crlf             				; new line
 		add ebx , 4           				; go to the next element
 		loop printingLoop
+		
 ;****************************************************************************
 
 invoke ExitProcess,0
