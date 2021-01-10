@@ -109,7 +109,7 @@ rev:								; getting ascending or descending sorting type
 		mov Ebx,2049					; to check if valid int input
 		and Ebx,Eax					; and to check for blank input	
 		cmp Ebx,0
-		jne Input
+		jne rev
 		mov Eax,Var
 		mov Ebx,1					; making sure that the input is 0 or 1
 		cmp Eax,Ebx					; if ( eax > ebx ) goto rev
