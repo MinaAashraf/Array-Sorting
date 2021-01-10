@@ -45,6 +45,7 @@ the program supoorts three ways of sorting (Bubble Sort - Selection Sort - Inser
 	
 	**Java Code for the Bubble Sort algorithm**
 	
+	![Bubble sort](https://user-images.githubusercontent.com/76550923/104127750-8c477a00-536c-11eb-9e49-bce59785f560.JPG)
 	
 	
 		
